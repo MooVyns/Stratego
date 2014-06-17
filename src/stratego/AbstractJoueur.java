@@ -20,8 +20,9 @@ public abstract class AbstractJoueur {
 		 return camp.toString();
 	 }
 	 
-	 public  abstract void placerPiece (String coord, Piece piece) throws Exception;
-	 public  abstract void retirePiece (String coord);
-	 public  abstract void deplacerPiece (String coord, String newCoord);
-	 public  abstract void jouer ();
+	public  abstract void retirePiece (String coord);
+	public  abstract void deplacerPiece (String coord, String newCoord);
+	public  abstract void jouer ();
+
+	public abstract void placerPiece(String coord, TypePiece type, Piece piece) throws Exception;
 }

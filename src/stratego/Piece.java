@@ -1,9 +1,12 @@
 package stratego;
 
+import joueur.Joueur;
+
 public class Piece {
 	private TypePiece typePiece;
 	private Camp camp;
 	private Case c;
+
 
 	public Piece(TypePiece valeur, Camp camp) {
 		this.typePiece = valeur;
@@ -32,10 +35,7 @@ public class Piece {
 	}
 
 	////////
-	public boolean enReserve() {
-		return false;
-	}
-
+	
 	public boolean estSupérieur(Piece p2) {
 		return this.typePiece.getValeur() > p2.getTypePiece().getValeur();		
 	}
