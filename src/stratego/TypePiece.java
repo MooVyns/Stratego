@@ -15,8 +15,7 @@ public enum TypePiece {
 	Drapeau(0,"X");	
 	
 	private int valeur;
-	private String initiale;
-	
+	private String initiale;	
 	
 	TypePiece(int valeur, String initiale){
 		this.valeur = valeur;
@@ -29,12 +28,9 @@ public enum TypePiece {
 	
 	public int getValeur(){
 		return this.valeur;
-	}
-	
+	}	
 	
 	public TypePiece getTypePiece(int v){
 		return TypePiece.values()[0];		
 	}
-	
-
 }

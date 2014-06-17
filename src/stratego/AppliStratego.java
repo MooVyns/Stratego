@@ -25,9 +25,7 @@ public class AppliStratego {
 
 	public static void main(String[] args) {
 		AppliStratego app = new AppliStratego(new FabriqueJoueur(),new ConsoleIHM());
-		app.initJoueur();
-		
-		
+		app.initJoueur();		
 		System.out.println(TypePiece.Bombe == TypePiece.Major);
 	}
 }

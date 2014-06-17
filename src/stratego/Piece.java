@@ -47,5 +47,4 @@ public class Piece {
 	public String nouvelleCoordonnee() {
 		return null;
 	}
-
 }

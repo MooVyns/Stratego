@@ -11,7 +11,6 @@ public enum Camp {
 
 	public String toString() {
 		return "e";
-
 	}
 
 }

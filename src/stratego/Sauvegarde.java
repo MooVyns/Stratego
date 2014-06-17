@@ -7,8 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class Sauvegarde {
-	private final static String FICHIERSAUVEGARDE = "sauvegarde.txt";
-	
+	private final static String FICHIERSAUVEGARDE = "sauvegarde.txt";	
 	
 	public static void creerFichier(){
 		File f = new File(FICHIERSAUVEGARDE);
@@ -28,8 +27,7 @@ public class Sauvegarde {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-	
+	}	
 	
 	public void charger(){
 		

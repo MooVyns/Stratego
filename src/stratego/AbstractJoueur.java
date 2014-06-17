@@ -25,7 +25,7 @@ public abstract class AbstractJoueur {
 		return piecesReserve;
 	}
 	
-	public void dispoReserve(Piece p) {		
+	public void initReserve() {		
 		piecesReserve[TypePiece.Maréchal.getValeur()]=1;
 		piecesReserve[TypePiece.Général.getValeur()]=1;
 		piecesReserve[TypePiece.Colonel.getValeur()]=2;
