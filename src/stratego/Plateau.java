@@ -5,8 +5,7 @@ public class Plateau {
 	private final int COLONNES = 7;
 	private final int LIGNES = 9;
 
-	
-	//a finir
+	// a finir
 	public Plateau() {
 		plateau = new Case[COLONNES + 1][LIGNES + 1];
 		for (int i = 0; i < (COLONNES + 1); ++i) {
@@ -16,7 +15,7 @@ public class Plateau {
 		}
 	}
 
-	//ok
+	// ok
 	private String coordToString(int i, int j) {
 		String res = new String();
 		res += (char) (i + 64);
@@ -24,7 +23,7 @@ public class Plateau {
 		return res;
 	}
 
-	
+	// a verifier
 	private int[] stringToCoord(String coord) {
 		int[] res = new int[2];
 		res[0] = coord.charAt(0);
@@ -32,17 +31,17 @@ public class Plateau {
 		return res;
 	}
 
-	//ok
+	// a verifier
 	public void placerPiece(String coord, Piece piece) throws Exception {
 		int[] numCoord = stringToCoord(coord);
-		// les coordonnées existe ?
+		// les coordonnées existent ?
 		if (numCoord[0] > COLONNES || numCoord[0] > LIGNES) {
 			throw new Exception();
 		}
-		// la piece est telle placer dans le bon camp ?
+		// la piece est-elle placée dans le bon camp ?
 		if (plateau[numCoord[0]][numCoord[1]].getCamp().toString()
 				.equals(piece.getCamp().toString())) {
-			// y'a t-il une piece deja placer a cette endroit
+			// y a-t-il une piece déjà placée à cette endroit ?
 			if (!caseOccupee(coord)) {
 				plateau[numCoord[0]][numCoord[1]].setPiece(piece);
 			}
@@ -51,41 +50,61 @@ public class Plateau {
 		}
 	}
 
+	// a verifier
 	public void retirerPiece(String coord) {
+
 		// bonne coordonné ?
 		int[] numCoord = stringToCoord(coord);
 		if (numCoord[0] > COLONNES || numCoord[0] > LIGNES) {
-			throw new Exception();
+			try {
+				throw new Exception();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		// ya til une piece a cette endroit ? 
 		if (this.caseOccupee(coord)) 
 				plateau[numCoord[0]][numCoord[1]].setPiece(null);
-		// est ce ma piece ?
-		
-		int[] numCoord = stringToCoord(coord);
-		plateau[numCoord[0]][numCoord[1]].retirerPiece();
+
+
+		// est-ce ma pièce ?
 
 	}
 
-	//ok
+	// ok
 	public boolean caseOccupee(String coord) {
-		int[] numCoord = stringToCoord(coord);		
+		int[] numCoord = stringToCoord(coord);
 		return plateau[numCoord[0]][numCoord[1]].estOccupée();
 	}
 
-	
+	public Piece getPiece(String coord) {
+		int[] numCoord = stringToCoord(coord);
+		return plateau[numCoord[0]][numCoord[1]].getPiece();
+	}
+
 	public String toString() {
 		String str = new String();
 		for (int i = 0; i < (COLONNES + 1); ++i) {
 			for (int j = 0; j < (LIGNES + 1); ++j) {
+				if (plateau[i][j].estOccupée()) {
 				str += plateau[i][j].getPiece().getTypePiece().toString();
+				}
+				else {
+				str += "# \n";
+				}
 			}
 		}
 		return str;
 	}
-	
-	public String etatPlateau(){
-		return null;
+
+	public String etatPlateau() {
+		String etat = new String();
+		for (int i = 0; i < COLONNES; i++)
+			for (int j = 0; j < LIGNES; j++) {
+				
+			}
+		return etat;
 	}
 	
 	

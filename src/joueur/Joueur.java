@@ -18,15 +18,17 @@ public class Joueur extends AbstractJoueur {
 	}
 
 	@Override
-	public void retirePiece(String coord) {
+	public void retirerPiece(String coord) {
 		if (getCamp().equals(coord)) 
+
 		plateau.retirerPiece(coord);
 	}
 
 	@Override
-	public void deplacerPiece(String coord, String newCoord) {
-		plateau.retirerPiece(newCoord);
-		///
+	public void deplacerPiece(String coord, String newCoord) throws Exception {
+		retirerPiece(coord);
+		//Piece piece = plateau.getPiece(coord);
+		//placerPiece(newCoord, piece);
 	}
 
 	@Override
