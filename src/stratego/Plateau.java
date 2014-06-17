@@ -26,8 +26,8 @@ public class Plateau {
 	// a verifier
 	public int[] stringToCoord(String coord) {
 		int[] res = new int[2];
-		res[0] = coord.charAt(0)-64;
-		res[1] = coord.charAt(1)-48;
+		res[0] = coord.charAt(0) - 65;
+		res[1] = coord.charAt(1) - 49;
 		return res;
 	}
 
@@ -39,14 +39,14 @@ public class Plateau {
 			throw new Exception();
 		}
 		// la piece est-elle placée dans le bon camp ?
-		if (plateau[numCoord[0]][numCoord[1]].getCamp().toString()
-				.equals(piece.getCamp().toString())) {
+		if (plateau[numCoord[0]][numCoord[1]].getCamp() == piece.getCamp()) {
 			// y a-t-il une piece déjà placée à cette endroit ?
 			if (!caseOccupee(coord)) {
 				plateau[numCoord[0]][numCoord[1]].setPiece(piece);
+				// }
+			} else {
+				throw new Exception();
 			}
-		} else {
-			throw new Exception();
 		}
 	}
 
@@ -92,8 +92,8 @@ public class Plateau {
 
 	public String toString() {
 		String str = new String();
-		for (int i = 0; i < (COLONNES + 1); ++i) {
-			for (int j = 0; j < (LIGNES + 1); ++j) {
+		for (int i = 0; i < (COLONNES); ++i) {
+			for (int j = 0; j < (LIGNES); ++j) {
 				if (plateau[i][j].estOccupée()) {
 					str += plateau[i][j].getPiece().getTypePiece().toString();
 				} else {

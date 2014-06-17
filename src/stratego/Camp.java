@@ -2,14 +2,15 @@ package stratego;
 
 public enum Camp {
 
-	Nord(), Sud();
+	Nord(), 
+	Sud();
 
 	Camp() {
 
 	}
 
 	public String toString() {
-		return null;
+		return "e";
 
 	}
 

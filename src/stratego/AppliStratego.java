@@ -20,21 +20,20 @@ public class AppliStratego {
 	}
 
 	public static void main(String[] args) {
-
 		Plateau plateau = new Plateau();
-		System.out.println(plateau.stringToCoord("C7")[0]);
-		System.out.println(plateau.stringToCoord("C7")[1]);
 		
-		System.out.println(plateau.etatPlateau());
 
 		try {
-			plateau.placerPiece("A3", new Piece(TypePiece.Maréchal, Camp.Nord));
+			plateau.placerPiece("F7", new Piece(TypePiece.Maréchal, Camp.Nord));
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println("erreur");
 		}
+		
+		plateau.retirerPiece("F7");
+		//plateau.retirerPiece("F7");
+		
+		System.out.println(TypePiece.Bombe == TypePiece.Major);
+		System.out.println(plateau.etatPlateau());
 		System.out.println(plateau.toString());
-		
-		
-
 	}
 }
