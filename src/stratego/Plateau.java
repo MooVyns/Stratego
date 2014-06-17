@@ -5,6 +5,8 @@ public class Plateau {
 	private final int COLONNES = 7;
 	private final int LIGNES = 9;
 
+	
+	//a finir
 	public Plateau() {
 		plateau = new Case[COLONNES + 1][LIGNES + 1];
 		for (int i = 0; i < (COLONNES + 1); ++i) {
@@ -14,6 +16,7 @@ public class Plateau {
 		}
 	}
 
+	//ok
 	private String coordToString(int i, int j) {
 		String res = new String();
 		res += (char) (i + 64);
@@ -21,32 +24,49 @@ public class Plateau {
 		return res;
 	}
 
-	public void placerPiece(String coord, Piece piece) {
+	
+	private int[] stringToCoord(String coord) {
+		int[] res = new int[2];
+		res[0] = coord.charAt(0);
+		res[1] = coord.charAt(0);
+		return res;
+	}
 
+	//ok
+	public void placerPiece(String coord, Piece piece) throws Exception {
+		int[] numCoord = stringToCoord(coord);
+		// les coordonnées existe ?
+		if (numCoord[0] > COLONNES || numCoord[0] > LIGNES) {
+			throw new Exception();
+		}
+		// la piece est telle placer dans le bon camp ?
+		if (plateau[numCoord[0]][numCoord[1]].getCamp().toString()
+				.equals(piece.getCamp().toString())) {
+			// y'a t-il une piece deja placer a cette endroit
+			if (!caseOccupee(coord)) {
+				plateau[numCoord[0]][numCoord[1]].setPiece(piece);
+			}
+		} else {
+			throw new Exception();
+		}
 	}
 
 	public void retirerPiece(String coord) {
-		
+		// bonne coordonné ?
+		// ya til une piece a cette endroit ?
+		// est ce ma piece ?
+		int[] numCoord = stringToCoord(coord);
+		plateau[numCoord[0]][numCoord[1]].retirerPiece();
+
 	}
 
+	//ok
 	public boolean caseOccupee(String coord) {
-		return false;
-
+		int[] numCoord = stringToCoord(coord);		
+		return plateau[numCoord[0]][numCoord[1]].estOccupée();
 	}
 
-	public boolean caseOK(String coord, Piece piece) {
-		return false;
-	}
-
-	public void getPlateauDeJeu() {
-
-	}
-
-	// ///
-	public void memoriserPlateau() {
-
-	}
-
+	
 	public String toString() {
 		String str = new String();
 		for (int i = 0; i < (COLONNES + 1); ++i) {
@@ -55,5 +75,9 @@ public class Plateau {
 			}
 		}
 		return str;
+	}
+	
+	public String etatPlateau(){
+		return null;
 	}
 }

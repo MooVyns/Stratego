@@ -14,12 +14,8 @@ public class Case {
 		this.piece = piece;
 	}	
 
-	public boolean caseNord() {
-		return camp.equals("Nord");
-	}
-
-	public boolean caseSud() {
-		return camp.equals("Sud");
+	public String getCamp(){
+		return this.camp.toString();
 	}
 
 	public boolean estOccupée() {
@@ -30,7 +26,11 @@ public class Case {
 		return this.coord;
 	}
 	
-	public Piece  getPiece() {
+	public Piece getPiece() {
 		return piece;
+	}
+	
+	public void retirerPiece(){
+		this.piece = null;
 	}
 }

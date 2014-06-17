@@ -11,8 +11,9 @@ public class Joueur extends AbstractJoueur {
 	}
 
 	@Override
-	public void placerPiece(String coord, Piece piece) {
-		// + conditions
+	public void placerPiece(String coord, Piece piece) throws Exception {
+		//condition sur la piece 
+		//existe elle dans la reserve ?
 		plateau.placerPiece(coord, piece);
 	}
 
