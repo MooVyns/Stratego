@@ -42,9 +42,7 @@ public class Joueur extends AbstractJoueur {
 
 	}
 	
-	public void dispoReserve(Piece p) {
-
-		
+	public void dispoReserve(Piece p) {		
 		piecesReserve[TypePiece.Maréchal.getValeur()]=1;
 		piecesReserve[TypePiece.Général.getValeur()]=1;
 		piecesReserve[TypePiece.Colonel.getValeur()]=2;
@@ -57,8 +55,6 @@ public class Joueur extends AbstractJoueur {
 		piecesReserve[TypePiece.Espion.getValeur()]=1;
 		piecesReserve[TypePiece.Bombe.getValeur()]=6;
 		piecesReserve[TypePiece.Drapeau.getValeur()]=1;
-			
-
 	}
 
 }
