@@ -35,14 +35,14 @@ public class Plateau {
 	//ok
 	public void placerPiece(String coord, Piece piece) throws Exception {
 		int[] numCoord = stringToCoord(coord);
-		// les coordonnées existe ?
+		// les coordonnées existent ?
 		if (numCoord[0] > COLONNES || numCoord[0] > LIGNES) {
 			throw new Exception();
 		}
-		// la piece est telle placer dans le bon camp ?
+		// la piece est-elle placée dans le bon camp ?
 		if (plateau[numCoord[0]][numCoord[1]].getCamp().toString()
 				.equals(piece.getCamp().toString())) {
-			// y'a t-il une piece deja placer a cette endroit
+			// y a-t-il une piece déjà placée à cette endroit ?
 			if (!caseOccupee(coord)) {
 				plateau[numCoord[0]][numCoord[1]].setPiece(piece);
 			}
@@ -52,9 +52,9 @@ public class Plateau {
 	}
 
 	public void retirerPiece(String coord) {
-		// bonne coordonné ?
-		// ya til une piece a cette endroit ?
-		// est ce ma piece ?
+		// bonne coordonnée ?
+		// y a-t-il une pièce a cette endroit ?
+		// est-ce ma pièce ?
 		int[] numCoord = stringToCoord(coord);
 		plateau[numCoord[0]][numCoord[1]].retirerPiece();
 
