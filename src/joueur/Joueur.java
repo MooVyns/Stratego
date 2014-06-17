@@ -19,7 +19,8 @@ public class Joueur extends AbstractJoueur {
 
 	@Override
 	public void retirerPiece(String coord) {
-		//ajouter la piece dans la réserve
+		if (getCamp().equals(coord)) 
+
 		plateau.retirerPiece(coord);
 	}
 

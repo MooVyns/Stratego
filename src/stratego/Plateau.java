@@ -52,11 +52,23 @@ public class Plateau {
 
 	// a verifier
 	public void retirerPiece(String coord) {
-		// bonne coordonnée ?
-		// y a-t-il une pièce a cette endroit ?
-		// est-ce ma pièce ?
+
+		// bonne coordonné ?
 		int[] numCoord = stringToCoord(coord);
-		plateau[numCoord[0]][numCoord[1]].retirerPiece();
+		if (numCoord[0] > COLONNES || numCoord[0] > LIGNES) {
+			try {
+				throw new Exception();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		// ya til une piece a cette endroit ? 
+		if (this.caseOccupee(coord)) 
+				plateau[numCoord[0]][numCoord[1]].setPiece(null);
+
+
+		// est-ce ma pièce ?
 
 	}
 
@@ -75,7 +87,12 @@ public class Plateau {
 		String str = new String();
 		for (int i = 0; i < (COLONNES + 1); ++i) {
 			for (int j = 0; j < (LIGNES + 1); ++j) {
+				if (plateau[i][j].estOccupée()) {
 				str += plateau[i][j].getPiece().getTypePiece().toString();
+				}
+				else {
+				str += "# \n";
+				}
 			}
 		}
 		return str;
@@ -93,4 +110,6 @@ public class Plateau {
 		}
 		return etat;
 	}
+	
+	
 }
