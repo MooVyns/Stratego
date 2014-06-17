@@ -20,6 +20,13 @@ public class AppliStratego {
 	}
 
 	public static void main(String[] args) {
+
+		Plateau plateau = new Plateau();
+		System.out.println(plateau.etatPlateau());
+
+		System.out.println(plateau.toString());
 		
+		
+
 	}
 }
