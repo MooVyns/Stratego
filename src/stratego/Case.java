@@ -14,8 +14,8 @@ public class Case {
 		this.piece = piece;
 	}	
 
-	public String getCamp(){
-		return this.camp.toString();
+	public Camp getCamp(){
+		return this.camp;
 	}
 
 	public boolean estOccupée() {
