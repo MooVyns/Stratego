@@ -103,7 +103,12 @@ public class Plateau {
 		int nbCasesVide = 0;
 		for (int i = 0; i < LIGNES; i++) {
 			for (int j = 0; j < COLONNES; j++) {
-				nbCasesVide++;
+				if(plateau[j][i].estOccupée()){
+					etat+=nbCasesVide+plateau[j][i].getPiece().getCamp().toString();
+					nbCasesVide = 0;
+				}else{
+					nbCasesVide++;
+				}				
 			}
 			etat += nbCasesVide +"/";
 			nbCasesVide = 0;
