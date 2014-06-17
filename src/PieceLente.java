@@ -1,3 +1,5 @@
+import stratego.Direction;
+
 
 public class PieceLente extends ImplementationMouvement {
 
@@ -8,6 +10,12 @@ public class PieceLente extends ImplementationMouvement {
 
 	public boolean estJouable() {
 		return false;
+	}
+
+	@Override
+	public void jouer(Direction dir, int nbrCases) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

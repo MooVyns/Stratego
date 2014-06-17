@@ -1,3 +1,5 @@
+import stratego.Direction;
+
 
 public abstract class ImplementationMouvement {
 	protected final int CASES_DEPLACEMENT_MAX;
@@ -7,4 +9,6 @@ public abstract class ImplementationMouvement {
 	}
 
 	abstract boolean estJouable();
+	
+	public abstract void jouer(Direction dir, int nbrCases);
 }
