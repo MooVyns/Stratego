@@ -83,10 +83,14 @@ public class Plateau {
 
 	public String etatPlateau() {
 		String etat = new String();
-		for (int i = 0; i < COLONNES; i++)
-			for (int j = 0; j < LIGNES; j++) {
-				
+		int nbCasesVide = 0;
+		for (int i = 0; i < LIGNES; i++) {
+			for (int j = 0; j < COLONNES; j++) {
+				nbCasesVide++;
 			}
+			etat += nbCasesVide +"/";
+			nbCasesVide = 0;
+		}
 		return etat;
 	}
 }
