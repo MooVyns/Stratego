@@ -21,7 +21,7 @@ public abstract class AbstractJoueur {
 	 }
 	 
 	 public  abstract void placerPiece (String coord, Piece piece) throws Exception;
-	 public  abstract void retirePiece (String coord);
-	 public  abstract void deplacerPiece (String coord, String newCoord);
+	 public  abstract void retirerPiece (String coord);
+	 public  abstract void deplacerPiece (String coord, String newCoord) throws Exception;
 	 public  abstract void jouer ();
 }

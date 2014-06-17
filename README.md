@@ -1,2 +1,3 @@
 Stratego
 ========
+Description

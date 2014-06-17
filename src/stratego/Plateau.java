@@ -5,8 +5,7 @@ public class Plateau {
 	private final int COLONNES = 7;
 	private final int LIGNES = 9;
 
-	
-	//a finir
+	// a finir
 	public Plateau() {
 		plateau = new Case[COLONNES + 1][LIGNES + 1];
 		for (int i = 0; i < (COLONNES + 1); ++i) {
@@ -16,7 +15,7 @@ public class Plateau {
 		}
 	}
 
-	//ok
+	// ok
 	private String coordToString(int i, int j) {
 		String res = new String();
 		res += (char) (i + 64);
@@ -24,7 +23,7 @@ public class Plateau {
 		return res;
 	}
 
-	
+	// a verifier
 	private int[] stringToCoord(String coord) {
 		int[] res = new int[2];
 		res[0] = coord.charAt(0);
@@ -32,7 +31,7 @@ public class Plateau {
 		return res;
 	}
 
-	//ok
+	// a verifier
 	public void placerPiece(String coord, Piece piece) throws Exception {
 		int[] numCoord = stringToCoord(coord);
 		// les coordonnées existe ?
@@ -51,6 +50,7 @@ public class Plateau {
 		}
 	}
 
+	// a verifier
 	public void retirerPiece(String coord) {
 		// bonne coordonné ?
 		// ya til une piece a cette endroit ?
@@ -60,13 +60,17 @@ public class Plateau {
 
 	}
 
-	//ok
+	// ok
 	public boolean caseOccupee(String coord) {
-		int[] numCoord = stringToCoord(coord);		
+		int[] numCoord = stringToCoord(coord);
 		return plateau[numCoord[0]][numCoord[1]].estOccupée();
 	}
 
-	
+	public Piece getPiece(String coord) {
+		int[] numCoord = stringToCoord(coord);
+		return plateau[numCoord[0]][numCoord[1]].getPiece();
+	}
+
 	public String toString() {
 		String str = new String();
 		for (int i = 0; i < (COLONNES + 1); ++i) {
@@ -76,8 +80,13 @@ public class Plateau {
 		}
 		return str;
 	}
-	
-	public String etatPlateau(){
-		return null;
+
+	public String etatPlateau() {
+		String etat = new String();
+		for (int i = 0; i < COLONNES; i++)
+			for (int j = 0; j < LIGNES; j++) {
+				
+			}
+		return etat;
 	}
 }
