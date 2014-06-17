@@ -17,12 +17,12 @@ public class Sauvegarde {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-	
+	}	
 	
 	public static void sauvegarder(String s){
 		creerFichier();
 		try {
+			@SuppressWarnings("resource")
 			PrintWriter p = new PrintWriter(new BufferedWriter(new FileWriter(FICHIERSAUVEGARDE)));
 			p.write(s);
 		} catch (IOException e) {
