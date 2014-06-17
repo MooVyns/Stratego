@@ -22,8 +22,16 @@ public class AppliStratego {
 	public static void main(String[] args) {
 
 		Plateau plateau = new Plateau();
+		System.out.println(plateau.stringToCoord("C7")[0]);
+		System.out.println(plateau.stringToCoord("C7")[1]);
+		
 		System.out.println(plateau.etatPlateau());
 
+		try {
+			plateau.placerPiece("A3", new Piece(TypePiece.Maréchal, Camp.Nord));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		System.out.println(plateau.toString());
 		
 		

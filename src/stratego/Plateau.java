@@ -24,10 +24,10 @@ public class Plateau {
 	}
 
 	// a verifier
-	private int[] stringToCoord(String coord) {
+	public int[] stringToCoord(String coord) {
 		int[] res = new int[2];
-		res[0] = coord.charAt(0);
-		res[1] = coord.charAt(0);
+		res[0] = coord.charAt(0)-64;
+		res[1] = coord.charAt(1)-48;
 		return res;
 	}
 
@@ -35,7 +35,7 @@ public class Plateau {
 	public void placerPiece(String coord, Piece piece) throws Exception {
 		int[] numCoord = stringToCoord(coord);
 		// les coordonnées existent ?
-		if (numCoord[0] > COLONNES || numCoord[0] > LIGNES) {
+		if (numCoord[0] > COLONNES || numCoord[1] > LIGNES) {
 			throw new Exception();
 		}
 		// la piece est-elle placée dans le bon camp ?
@@ -51,9 +51,10 @@ public class Plateau {
 	}
 
 	// a verifier
-	public void retirerPiece(String coord) {
-
+	public Piece retirerPiece(String coord) {
 		// bonne coordonné ?
+		Piece p = null;
+
 		int[] numCoord = stringToCoord(coord);
 		if (numCoord[0] > COLONNES || numCoord[0] > LIGNES) {
 			try {
@@ -63,13 +64,19 @@ public class Plateau {
 				e.printStackTrace();
 			}
 		}
-		// ya til une piece a cette endroit ? 
-		if (this.caseOccupee(coord)) 
-				plateau[numCoord[0]][numCoord[1]].setPiece(null);
-
-
-		// est-ce ma pièce ?
-
+		// ya til une piece a cette endroit ?
+		if (this.caseOccupee(coord)) {
+			p = plateau[numCoord[0]][numCoord[1]].getPiece();
+			plateau[numCoord[0]][numCoord[1]].setPiece(null);
+		} else {
+			try {
+				throw new Exception();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return p;
 	}
 
 	// ok
@@ -88,12 +95,12 @@ public class Plateau {
 		for (int i = 0; i < (COLONNES + 1); ++i) {
 			for (int j = 0; j < (LIGNES + 1); ++j) {
 				if (plateau[i][j].estOccupée()) {
-				str += plateau[i][j].getPiece().getTypePiece().toString();
-				}
-				else {
-				str += "# \n";
+					str += plateau[i][j].getPiece().getTypePiece().toString();
+				} else {
+					str += "#";
 				}
 			}
+			str += "\n";
 		}
 		return str;
 	}
@@ -103,18 +110,18 @@ public class Plateau {
 		int nbCasesVide = 0;
 		for (int i = 0; i < LIGNES; i++) {
 			for (int j = 0; j < COLONNES; j++) {
-				if(plateau[j][i].estOccupée()){
-					etat+=nbCasesVide+plateau[j][i].getPiece().getCamp().toString();
+				if (plateau[j][i].estOccupée()) {
+					etat += nbCasesVide
+							+ plateau[j][i].getPiece().getCamp().toString();
 					nbCasesVide = 0;
-				}else{
+				} else {
 					nbCasesVide++;
-				}				
+				}
 			}
-			etat += nbCasesVide +"/";
+			etat += nbCasesVide + "/";
 			nbCasesVide = 0;
 		}
 		return etat;
 	}
-	
-	
+
 }
