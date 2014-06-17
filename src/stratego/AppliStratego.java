@@ -9,7 +9,7 @@ public class AppliStratego {
 	private Plateau plateau;
 	private IFabriqueJoueur iFabrique;
 	private IHM ihm;
-	//private Sauvegarde sauvegarde;
+	private Sauvegarde sauvegarde;
 
 	public AppliStratego(IFabriqueJoueur iFabrique, IHM ihm) {
 		this.joueurs = new Joueur[2];
