@@ -19,6 +19,7 @@ public class Joueur extends AbstractJoueur {
 
 	@Override
 	public void retirePiece(String coord) {
+		if (getCamp().equals(coord)) 
 		plateau.retirerPiece(coord);
 	}
 

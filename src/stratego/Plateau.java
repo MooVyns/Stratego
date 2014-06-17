@@ -53,8 +53,15 @@ public class Plateau {
 
 	public void retirerPiece(String coord) {
 		// bonne coordonné ?
-		// ya til une piece a cette endroit ?
+		int[] numCoord = stringToCoord(coord);
+		if (numCoord[0] > COLONNES || numCoord[0] > LIGNES) {
+			throw new Exception();
+		}
+		// ya til une piece a cette endroit ? 
+		if (this.caseOccupee(coord)) 
+				plateau[numCoord[0]][numCoord[1]].setPiece(null);
 		// est ce ma piece ?
+		
 		int[] numCoord = stringToCoord(coord);
 		plateau[numCoord[0]][numCoord[1]].retirerPiece();
 
@@ -80,4 +87,6 @@ public class Plateau {
 	public String etatPlateau(){
 		return null;
 	}
+	
+	
 }
