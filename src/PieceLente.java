@@ -7,6 +7,7 @@ public class PieceLente extends ImplementationMouvement {
 		super(deplacementMax);
 		// TODO Auto-generated constructor stub
 	}
+	
 
 	public boolean estJouable() {
 		return false;
