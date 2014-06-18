@@ -13,7 +13,8 @@ public class PieceImmobile extends ImplementationMouvement {
 
 	@Override
 	public void jouer(Direction dir, int nbrCases) {
-		// TODO Auto-generated method stub		
+		// TODO Auto-generated method stub
+		
 	}
 
 }
