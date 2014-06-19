@@ -35,7 +35,6 @@ public class AppliStratego {
 		}
 	}
 	
-	
 
 	public static void main(String[] args) {
 		AppliStratego app = new AppliStratego(new FabriqueJoueur(),new ConsoleIHM());
