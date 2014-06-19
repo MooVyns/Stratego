@@ -1,8 +1,9 @@
 package exceptions;
 
+@SuppressWarnings("serial")
 public class CoordonneeInconnuException extends Exception{
 	public CoordonneeInconnuException(){
-		System.err.println("Les coordonnés n'existent pas !\n");
+		System.out.println("Les coordonnés n'existent pas !\n");
 	}
 
 }

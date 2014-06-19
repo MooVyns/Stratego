@@ -34,16 +34,14 @@ public class Plateau {
 	}
 
 	// a verifier
-	public void placerPiece(String coord, Piece piece) {
+	public boolean placerPiece(String coord, Piece piece) {
+		boolean ok = true;
 		try {
 			int[] numCoord = stringToCoord(coord);
-			// les coordonnées existent ?
 			if (numCoord[0] > COLONNES || numCoord[1] > LIGNES) {
 				throw new CoordonneeInconnuException();
 			}
-			// la piece est-elle placée dans le bon camp ?
 			if (plateau[numCoord[0]][numCoord[1]].getCamp() == piece.getCamp()) {
-				// y a-t-il une piece déjà placée à cette endroit ?
 				if (!caseOccupee(coord)) {
 					plateau[numCoord[0]][numCoord[1]].setPiece(piece);
 				} else {
@@ -53,18 +51,15 @@ public class Plateau {
 				throw new MauvaisCampException();
 			}
 		} catch (CoordonneeInconnuException e) {
-
 		} catch (CaseOccupeeException e) {
-
 		} catch (MauvaisCampException e) {
-
 		}
+		return true;
 	}
 
 	// a verifier
 	public void retirerPiece(String coord) {
 		// bonne coordonné ?
-
 		try {
 			int[] numCoord = stringToCoord(coord);
 			if (numCoord[0] > COLONNES || numCoord[0] > LIGNES) {
@@ -81,11 +76,16 @@ public class Plateau {
 					e.printStackTrace();
 				}
 			}
-
 		} catch (CoordonneeInconnuException e) {
 
 		}
+	}
 
+	// a faire
+	public void deplacerPiece(String coord, String newCoord) {
+		Piece piece = getPiece(coord);
+		this.placerPiece(newCoord, piece);
+		this.retirerPiece(coord);
 	}
 
 	// ok
