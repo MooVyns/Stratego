@@ -19,18 +19,13 @@ public class ConsoleIHM implements IHM {
 	}
 
 	@Override
-	public String getNomJoueur() {
-		return sc.next();
+	public String[] saisieNomJoueur() {
+		String[] noms = new String[2];
+		for (int i = 1; i <= noms.length; i++) {
+			System.out.println("Joueur " + i + ", Entrez votre nom");
+			noms[i - 1] = sc.next();
+		}
+		return noms;
 	}
-
-	public void EntrerNomJoueur() {
-		System.out.println("Entrez votre nom");
-	}
-
-	@Override
-	public void afficherNomJoueur(AbstractJoueur joueur) {
-		System.out.println(joueur.getNom());
-	}
-	
 
 }

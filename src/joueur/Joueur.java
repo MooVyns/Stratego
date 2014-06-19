@@ -13,7 +13,7 @@ public class Joueur extends AbstractJoueur {
 	}
 
 	@Override
-	public void placerPiece(String coord, TypePiece type) throws Exception {
+	public void placerPiece(String coord, TypePiece type) {
 		if (getPiecesReserve()[type.getValeur()]>0) {
 			plateau.placerPiece(coord, new Piece(type, this.getCamp()));
 			this.piecesReserve[type.getValeur()]--;
@@ -28,7 +28,7 @@ public class Joueur extends AbstractJoueur {
 	}
 
 	@Override
-	public void deplacerPiece(String coord, String newCoord) throws Exception {		
+	public void deplacerPiece(String coord, String newCoord) {		
 		//placerPiece(newCoord, plateau.retirerPiece(coord).getTypePiece());
 	}
 
