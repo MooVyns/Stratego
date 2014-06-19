@@ -4,7 +4,7 @@ public abstract class AbstractJoueur {
 	protected Plateau plateau;
 	private String nom;
 	private Camp camp;
-	protected int[] piecesReserve;
+	private int[] piecesReserve;
 
 	public AbstractJoueur(String nom, Camp camp, Plateau plateau) {
 		this.nom = nom;

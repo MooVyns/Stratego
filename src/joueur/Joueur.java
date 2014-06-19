@@ -16,7 +16,7 @@ public class Joueur extends AbstractJoueur {
 	public void placerPiece(String coord, TypePiece type) {
 		if (getPiecesReserve()[type.getValeur()]>0) {
 			plateau.placerPiece(coord, new Piece(type, this.getCamp()));
-			this.piecesReserve[type.getValeur()]--;
+			//this.piecesReserve[type.getValeur()]--;
 		}
 	}
 

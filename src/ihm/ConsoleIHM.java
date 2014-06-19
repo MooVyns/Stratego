@@ -35,7 +35,17 @@ public class ConsoleIHM implements IHM {
 		for (int i = 0; i < TypePiece.values().length; i++)
 			System.out.println(i +"  " +TypePiece.values()[i].toString());		
 		//Ajouter la verification
-		String choix = sc.nextLine();		
+		String choix = sc.next();		
 		return TypePiece.values()[Integer.parseInt(choix)];
+	}
+	
+	
+	public String choixCoordonnees(){
+		System.out.println("A quelle endroit ?");
+		return sc.next();
+	}
+	
+	public void afficherString(String str){
+		System.out.println(str);
 	}
 }
