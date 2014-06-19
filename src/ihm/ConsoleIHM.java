@@ -2,9 +2,10 @@ package ihm;
 
 import java.util.Scanner;
 
-import stratego.AbstractJoueur;
+
 import stratego.IHM;
 import stratego.Plateau;
+import stratego.TypePiece;
 
 public class ConsoleIHM implements IHM {
 	private Scanner sc;
@@ -28,4 +29,13 @@ public class ConsoleIHM implements IHM {
 		return noms;
 	}
 
+	@Override
+	public TypePiece choixPiece() {
+		System.out.println("Quelle pièce voulez vous placer ?");
+		for (int i = 0; i < TypePiece.values().length; i++)
+			System.out.println(i +"  " +TypePiece.values()[i].toString());		
+		//Ajouter la verification
+		String choix = sc.nextLine();		
+		return TypePiece.values()[Integer.parseInt(choix)];
+	}
 }

@@ -34,8 +34,7 @@ public class Plateau {
 	}
 
 	// a verifier
-	public boolean placerPiece(String coord, Piece piece) {
-		boolean ok = true;
+	public void placerPiece(String coord, Piece piece) {
 		try {
 			int[] numCoord = stringToCoord(coord);
 			if (numCoord[0] > COLONNES || numCoord[1] > LIGNES) {
@@ -54,7 +53,6 @@ public class Plateau {
 		} catch (CaseOccupeeException e) {
 		} catch (MauvaisCampException e) {
 		}
-		return true;
 	}
 
 	// a verifier
@@ -77,7 +75,6 @@ public class Plateau {
 				}
 			}
 		} catch (CoordonneeInconnuException e) {
-
 		}
 	}
 

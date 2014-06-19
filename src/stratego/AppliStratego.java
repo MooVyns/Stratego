@@ -26,10 +26,8 @@ public class AppliStratego {
 	}
 
 	public void PlacementDesPieces(){
-		for(int i = 0; i <joueurs.length; i++){
-			while(true){
-				//joueurs[i].placerPiece(coord, type);
-			}
+		for(int i = 0; i <joueurs.length; i++){		
+			ihm.choixPiece();			
 		}
 	}
 	
@@ -37,5 +35,6 @@ public class AppliStratego {
 	public static void main(String[] args) {
 		AppliStratego app = new AppliStratego(new FabriqueJoueur(),new ConsoleIHM());
 		app.initJoueur();	
+		app.PlacementDesPieces();
 	}
 }

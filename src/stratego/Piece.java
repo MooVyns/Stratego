@@ -5,9 +5,8 @@ public class Piece {
 	private Camp camp;
 	private Case c;
 
-
-	public Piece(TypePiece valeur, Camp camp) {
-		this.typePiece = valeur;
+	public Piece(TypePiece typePiece, Camp camp) {
+		this.typePiece = typePiece;
 		this.camp = camp;
 	}
 
@@ -23,28 +22,15 @@ public class Piece {
 		return c.getCoordonnees();
 	}
 
-	////////
-	public boolean estJouable() {
-		return false;
-	}
-
 	public boolean surPlateau() {
 		return c != null;
 	}
 
-	////////
-	
 	public boolean estSupérieur(Piece p2) {
-		return this.typePiece.getValeur() > p2.getTypePiece().getValeur();		
+		return this.typePiece.getValeur() > p2.getTypePiece().getValeur();
 	}
 
-	////////
-	public String ancienneCoordonnee() {
-		return null;
-	}
-
-	////////
-	public String nouvelleCoordonnee() {
-		return null;
+	public static Piece creerPiece(TypePiece typePiece, Camp camp) {
+		return new Piece(typePiece, camp);
 	}
 }
