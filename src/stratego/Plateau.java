@@ -1,5 +1,7 @@
 package stratego;
 
+import exceptions.*;
+
 public class Plateau {
 	private Case[][] plateau;
 	private final int COLONNES = 7;
@@ -24,7 +26,7 @@ public class Plateau {
 	}
 
 	// a verifier
-	public int[] stringToCoord(String coord) {
+	private int[] stringToCoord(String coord) {
 		int[] res = new int[2];
 		res[0] = coord.charAt(0) - 65;
 		res[1] = coord.charAt(1) - 49;
@@ -32,51 +34,58 @@ public class Plateau {
 	}
 
 	// a verifier
-	public void placerPiece(String coord, Piece piece) throws Exception {
-		int[] numCoord = stringToCoord(coord);
-		// les coordonnées existent ?
-		if (numCoord[0] > COLONNES || numCoord[1] > LIGNES) {
-			throw new Exception();
-		}
-		// la piece est-elle placée dans le bon camp ?
-		if (plateau[numCoord[0]][numCoord[1]].getCamp() == piece.getCamp()) {
-			// y a-t-il une piece déjà placée à cette endroit ?
-			if (!caseOccupee(coord)) {
-				plateau[numCoord[0]][numCoord[1]].setPiece(piece);
-				// }
-			} else {
-				throw new Exception();
+	public void placerPiece(String coord, Piece piece) {
+		try {
+			int[] numCoord = stringToCoord(coord);
+			// les coordonnées existent ?
+			if (numCoord[0] > COLONNES || numCoord[1] > LIGNES) {
+				throw new CoordonneeInconnuException();
 			}
+			// la piece est-elle placée dans le bon camp ?
+			if (plateau[numCoord[0]][numCoord[1]].getCamp() == piece.getCamp()) {
+				// y a-t-il une piece déjà placée à cette endroit ?
+				if (!caseOccupee(coord)) {
+					plateau[numCoord[0]][numCoord[1]].setPiece(piece);
+				} else {
+					throw new CaseOccupeeException();
+				}
+			} else {
+				throw new MauvaisCampException();
+			}
+		} catch (CoordonneeInconnuException e) {
+
+		} catch (CaseOccupeeException e) {
+
+		} catch (MauvaisCampException e) {
+
 		}
 	}
 
 	// a verifier
-	public Piece retirerPiece(String coord) {
+	public void retirerPiece(String coord) {
 		// bonne coordonné ?
-		Piece p = null;
 
-		int[] numCoord = stringToCoord(coord);
-		if (numCoord[0] > COLONNES || numCoord[0] > LIGNES) {
-			try {
-				throw new Exception();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		try {
+			int[] numCoord = stringToCoord(coord);
+			if (numCoord[0] > COLONNES || numCoord[0] > LIGNES) {
+				throw new CoordonneeInconnuException();
 			}
-		}
-		// ya til une piece a cette endroit ?
-		if (this.caseOccupee(coord)) {
-			p = plateau[numCoord[0]][numCoord[1]].getPiece();
-			plateau[numCoord[0]][numCoord[1]].setPiece(null);
-		} else {
-			try {
-				throw new Exception();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			// ya til une piece a cette endroit ?
+			if (this.caseOccupee(coord)) {
+				plateau[numCoord[0]][numCoord[1]].setPiece(null);
+			} else {
+				try {
+					throw new Exception();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
+
+		} catch (CoordonneeInconnuException e) {
+
 		}
-		return p;
+
 	}
 
 	// ok

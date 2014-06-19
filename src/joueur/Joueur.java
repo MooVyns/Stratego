@@ -23,13 +23,13 @@ public class Joueur extends AbstractJoueur {
 	@Override
 	public void retirerPiece(String coord) {
 		if (getCamp().equals(coord)){
-			this.piecesReserve[plateau.retirerPiece(coord).getTypePiece().getValeur()]++;
+			//this.piecesReserve[plateau.retirerPiece(coord).getTypePiece().getValeur()]++;
 		}
 	}
 
 	@Override
 	public void deplacerPiece(String coord, String newCoord) throws Exception {		
-		placerPiece(newCoord, plateau.retirerPiece(coord).getTypePiece());
+		//placerPiece(newCoord, plateau.retirerPiece(coord).getTypePiece());
 	}
 
 	@Override
