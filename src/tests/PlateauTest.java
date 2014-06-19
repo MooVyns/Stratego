@@ -37,8 +37,6 @@ public class PlateauTest {
 		
 		
 		
-		
-		//TEST DEPLACER PIECE
 	
 	}
 

@@ -13,30 +13,23 @@ public class Joueur extends AbstractJoueur {
 	}
 
 	@Override
-	public void placerPiece(String coord, TypePiece type) {
-		if (getPiecesReserve()[type.getValeur()]>0) {
-			plateau.placerPiece(coord, new Piece(type, this.getCamp()));
-			//this.piecesReserve[type.getValeur()]--;
+	public void placerPiece(String coord, TypePiece typePiece) {
+		if (this.getReserve().pieceEstDisponible(typePiece)) {
+			plateau.placerPiece(coord, new Piece(typePiece, this.getCamp()));
+			this.getReserve().retirerPiece(typePiece);
 		}
 	}
 
 	@Override
 	public void retirerPiece(String coord) {
 		if (getCamp().equals(coord)){
-			//this.piecesReserve[plateau.retirerPiece(coord).getTypePiece().getValeur()]++;
+			plateau.retirerPiece(coord);
+			//this.getReserve().remettrePiece(typePiece);
 		}
-	}
-
-	@Override
-	public void deplacerPiece(String coord, String newCoord) {		
-		//placerPiece(newCoord, plateau.retirerPiece(coord).getTypePiece());
 	}
 
 	@Override
 	public void jouer() {
 
 	}
-	
-	
-
 }
