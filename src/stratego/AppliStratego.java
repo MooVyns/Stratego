@@ -9,7 +9,7 @@ public class AppliStratego {
 	private Plateau plateau;
 	private IFabriqueJoueur iFabrique;
 	private IHM ihm;
-	private Sauvegarde sauvegarde;
+	
 
 	public AppliStratego(IFabriqueJoueur iFabrique, IHM ihm) {
 		this.joueurs = new Joueur[2];
@@ -19,8 +19,8 @@ public class AppliStratego {
 	}
 
 	public void initJoueur() {
-		joueurs[0] = iFabrique.creerJoueur("pierre", Camp.Sud, plateau);
-		joueurs[1] = iFabrique.creerJoueur("paul", Camp.Nord, plateau);
+		joueurs[0] = iFabrique.creerJoueur(ihm.getNomJoueur(), Camp.Sud, plateau);
+		joueurs[1] = iFabrique.creerJoueur(ihm.getNomJoueur(), Camp.Nord, plateau);
 	}
 
 	public static void main(String[] args) {
