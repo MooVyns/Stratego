@@ -62,6 +62,5 @@ public class Joueur extends AbstractJoueur {
 		String coorPiece = p.getCoordonnees();
 
 		// Verification des coordonnées
-
 	}
 }

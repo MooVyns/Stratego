@@ -2,13 +2,19 @@ package stratego;
 
 
 public abstract class ImplementationMouvement {
-	protected final int CASES_DEPLACEMENT_MAX;
-
-	public ImplementationMouvement(int deplacementMax) {
-		CASES_DEPLACEMENT_MAX = deplacementMax;
+	private int CASES_DEPLACEMENT_MAX;	
+	
+	public void setDeplacementMax(int deplacementMax){
+		CASES_DEPLACEMENT_MAX  = deplacementMax;
+	}
+	
+	public int getDeplacementMax(){
+		return this.CASES_DEPLACEMENT_MAX;
 	}
 
-	public abstract boolean estJouable();
+	public boolean estJouable() {
+		return this.getDeplacementMax() != 0;
+	}
 	
 	public abstract void jouer();
 }

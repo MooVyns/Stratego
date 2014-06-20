@@ -1,9 +1,9 @@
 package stratego;
 
 public enum TypePiece {
-	Maréchal(10, "A"), Général(9, "B"), Colonel(8, "C"), Major(7, "D"), Capitaine(
-			6, "E"), Lieutenant(5, "F"), Sergent(4, "G"), Démineur(3, "H"), Eclaireur(
-			2, "I"), Espion(1, "J"), Bombe(11, "O"), Drapeau(0, "X");
+	Drapeau(0, "X"), Espion(1, "J"),  Eclaireur(2, "I"), Démineur(
+			3, "H"), Sergent(4, "G"), Lieutenant(5, "F"),Capitaine(6, "E"), Major(7, "D"), Colonel(8, "C"), Général(9,
+					"B"), Maréchal(10, "A"), Bombe(11, "O");
 
 	private int valeur;
 	private String initiale;

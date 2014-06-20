@@ -30,7 +30,7 @@ public class AppliStratego {
 			ihm.afficherString(joueurs[i].getNom()
 					+ ", à vous de placer vos pions");
 			while (!joueurs[i].getReserve().estVide()) {
-				TypePiece type = ihm.choixPiece();
+				TypePiece type = ihm.choixPiece(joueurs[i]);
 				String coord = ihm.choixCoordonnees();
 				joueurs[i].placerPiece(coord, type);
 				ihm.afficherPlateau(plateau);
