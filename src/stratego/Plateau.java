@@ -145,6 +145,7 @@ public class Plateau {
 			this.plateau[coordonnees[0]][coordonnees[1]].setPiece(null);
 			// la case ne pointe plus sur la piece
 		} else {
+			//Suppression des 2 pieces
 			// Egalité !!!
 		}
 	}

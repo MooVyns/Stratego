@@ -38,7 +38,7 @@ public class ConsoleIHM implements IHM {
 					+ TypePiece.values()[i].toString()
 					+ "  "
 					+ (j.getReserve().getNombrePieceDisponible(TypePiece
-							.values()[i])) + " disponible(s)"); // afficher nb de pieces restantes
+							.values()[i])) + " pièce(s) disponible(s)"); // afficher nb de pieces restantes
 												// en réserve
 		// Ajouter la verification sur chaine de caratère - conversion en int
 		String choix = sc.next();

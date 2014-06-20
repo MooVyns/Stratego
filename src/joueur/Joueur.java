@@ -35,6 +35,7 @@ public class Joueur extends AbstractJoueur {
 		}
 	}
 
+	
 	public boolean verfiCoordonnees(String coord) {
 		for (int i = 0; i < this.plateau.getPlateau().length; ++i) {
 			for (int j = 0; j < this.plateau.getPlateau().length; ++j) {
@@ -49,8 +50,12 @@ public class Joueur extends AbstractJoueur {
 
 	@Override
 	public void jouer(Direction dir, int nbrCases, String coord) {
-		// Récupération de la pièce la piece
-		Piece p = plateau.getPiece(coord);
+		
+		Piece p = null;
+		//Verification des coordonnées
+		if(verfiCoordonnees(coord))
+			//Récupération de la pièce la piece
+			 p = plateau.getPiece(coord);
 
 		// Verification de la possibilité de déplacement(type)
 
