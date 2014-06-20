@@ -5,9 +5,8 @@ import stratego.ImplementationMouvement;
 
 public class PieceRapide extends ImplementationMouvement {
 
-	public PieceRapide(int deplacementMax) {
-		super(deplacementMax);
-		// TODO Auto-generated constructor stub
+	public PieceRapide() {
+		this.setDeplacementMax(8);
 	}
 
 	public boolean estJouable() {

@@ -40,6 +40,5 @@ public class Joueur extends AbstractJoueur {
 		//Verification de la possibilité de déplacement(type)
 		//Calcul des nouvelles coordonnées
 		//Verification des coordonnées
-		//Verification de qu'il n'y a pas de piece a cette endroit
 	}
 }

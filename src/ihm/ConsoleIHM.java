@@ -47,5 +47,5 @@ public class ConsoleIHM implements IHM {
 	
 	public void afficherString(String str){
 		System.out.println(str);
-	}
+	}	
 }
