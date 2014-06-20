@@ -78,12 +78,7 @@ public class Plateau {
 		}
 	}
 
-	// a faire
-	public void deplacerPiece(String coord, String newCoord) {
-		Piece piece = getPiece(coord);
-		this.placerPiece(newCoord, piece);
-		this.retirerPiece(coord);
-	}
+	
 
 	// ok
 	public boolean caseOccupee(String coord) {

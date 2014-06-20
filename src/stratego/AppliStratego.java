@@ -37,6 +37,19 @@ public class AppliStratego {
 			}
 		}
 	}
+	
+	public void deroulementPartie(){
+		
+	}
+	
+	
+	public void sauvegarderPartie(){
+		
+	}
+	
+	public void chargerPartie(){
+		
+	}
 
 	public static void main(String[] args) {
 		AppliStratego app = new AppliStratego(new FabriqueJoueur(),

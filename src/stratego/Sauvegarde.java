@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 public class Sauvegarde {
 	private final static String FICHIERSAUVEGARDE = "sauvegarde.txt";	
 	
-	public static void creerFichier(){
+	public static void creerFichierSauvegarde(){
 		File f = new File(FICHIERSAUVEGARDE);
 		try {
 			f.createNewFile();
@@ -18,8 +18,8 @@ public class Sauvegarde {
 		}
 	}	
 	
-	public static void sauvegarder(String s){
-		creerFichier();
+	public static void sauvegarderPartie(String s){
+		creerFichierSauvegarde();
 		try {
 
 			PrintWriter p = new PrintWriter(new BufferedWriter(new FileWriter(FICHIERSAUVEGARDE)));
@@ -29,7 +29,7 @@ public class Sauvegarde {
 		}
 	}	
 	
-	public void charger(){
+	public void chargerPartie(){
 		
 	}
 }

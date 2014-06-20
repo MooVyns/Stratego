@@ -10,13 +10,17 @@ public class Case {
 		this.coord = coord;
 	}
 	
+	public Camp getCamp(){
+		return this.camp;
+	}
+	
 	public void setPiece(Piece piece){
 		this.piece = piece;
 		this.piece.setCase(this);
-	}	
-
-	public Camp getCamp(){
-		return this.camp;
+	}
+	
+	public Piece getPiece() {
+		return piece;
 	}
 
 	public boolean estOccupée() {
@@ -25,11 +29,8 @@ public class Case {
 
 	public String getCoordonnees() {
 		return this.coord;
-	}
+	}	
 	
-	public Piece getPiece() {
-		return piece;
-	}
 	
 	public void retirerPiece(){
 		this.piece = null;
