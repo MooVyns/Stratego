@@ -11,12 +11,13 @@ public class Piece {
 	public Piece(TypePiece typePiece, Camp camp) {
 		this.typePiece = typePiece;
 		this.camp = camp;
-		this.implementation = FabriqueImplementation.creer(typePiece.getValeur()) ;
+		this.implementation = FabriqueImplementation.creer(typePiece
+				.getValeur());
 	}
 
 	public TypePiece getTypePiece() {
 		return this.typePiece;
-	}	
+	}
 
 	public Camp getCamp() {
 		return this.camp;
@@ -25,17 +26,19 @@ public class Piece {
 	public String getCoordonnees() {
 		return c.getCoordonnees();
 	}
-	
-	public boolean estJouable(){
+
+	public boolean estJouable() {
 		return implementation.estJouable();
-		//+ verifier si la piece est bloquer
+		// + verifier si la piece est bloquer
 	}
-	
-	public void setCase(Case c){
+
+	public void setCase(Case c) {
 		this.c = c;
 	}
-	
-	
+
+	public void supprimer(){
+		setCase(null);
+	}
 
 	public boolean surPlateau() {
 		return c != null;
