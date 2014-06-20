@@ -18,6 +18,10 @@ public class Piece {
 		return this.camp;
 	}
 
+	public void setCase(Case c){
+		this.c = c;
+	}
+	
 	public String getCoordonnees() {
 		return c.getCoordonnees();
 	}

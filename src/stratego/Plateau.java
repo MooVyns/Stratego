@@ -37,7 +37,7 @@ public class Plateau {
 	public void placerPiece(String coord, Piece piece) {
 		try {
 			int[] numCoord = stringToCoord(coord);
-			if (numCoord[0] > COLONNES || numCoord[1] > LIGNES) {
+			if (numCoord[0] > COLONNES || numCoord[1] > LIGNES || coord.length() > 2) {
 				throw new CoordonneeInconnuException();
 			}
 			if (plateau[numCoord[0]][numCoord[1]].getCamp() == piece.getCamp()) {

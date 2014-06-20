@@ -42,5 +42,9 @@ public class Reserve {
 	public boolean pieceEstDisponible(TypePiece typePiece) {
 		return this.piecesReserve[typePiece.getValeur()] != 0;
 	}
+	
+	public int getNombrePieceDisponible(TypePiece typePiece){
+		return this.piecesReserve[typePiece.getValeur()];
+	}
 
 }

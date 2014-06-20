@@ -12,6 +12,7 @@ public class Case {
 	
 	public void setPiece(Piece piece){
 		this.piece = piece;
+		this.piece.setCase(this);
 	}	
 
 	public Camp getCamp(){
