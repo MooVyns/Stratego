@@ -1,6 +1,5 @@
 package stratego;
 
-import joueur.Joueur;
 
 public interface IHM {
 	public void afficherPlateau(Plateau plateau);
