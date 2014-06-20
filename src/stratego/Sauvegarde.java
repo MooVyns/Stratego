@@ -1,4 +1,4 @@
-package sauvegarde;
+package stratego;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -7,31 +7,29 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class Sauvegarde {
-	private final static String FICHIERSAUVEGARDE = "sauvegarde.txt";
+	private final static String FICHIERSAUVEGARDE = "sauvegarde.txt";	
 	
-	
-	public static void creerFichier(){
+	public static void creerFichierSauvegarde(){
 		File f = new File(FICHIERSAUVEGARDE);
 		try {
 			f.createNewFile();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
+	}	
 	
-	
-	public static void sauvegarder(String s){
-		creerFichier();
+	public static void sauvegarderPartie(String s){
+		creerFichierSauvegarde();
 		try {
+
 			PrintWriter p = new PrintWriter(new BufferedWriter(new FileWriter(FICHIERSAUVEGARDE)));
 			p.write(s);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
+	}	
 	
-	
-	public void charger(){
+	public void chargerPartie(){
 		
 	}
 }

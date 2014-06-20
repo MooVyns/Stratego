@@ -1,5 +1,7 @@
 package stratego;
 
+import exceptions.*;
+
 public class Plateau {
 	private Case[][] plateau;
 	private final int COLONNES = 7;
@@ -7,10 +9,21 @@ public class Plateau {
 
 	// a finir
 	public Plateau() {
-		plateau = new Case[COLONNES + 1][LIGNES + 1];
-		for (int i = 0; i < (COLONNES + 1); ++i) {
-			for (int j = 0; j < (LIGNES + 1); ++j) {
-				plateau[i][j] = new Case(Camp.Nord, coordToString(i, j));
+		plateau = new Case[COLONNES][LIGNES];
+		for (int i = 0; i < COLONNES; ++i) {
+			for (int j = 0; j < LIGNES; ++j) {
+				if (j > 4)
+					plateau[i][j] = new Case(Camp.Sud, coordToString(i, j));
+				if (j < 3)
+					plateau[i][j] = new Case(Camp.Nord, coordToString(i, j));
+				if (j == 4)
+					plateau[i][j] = new Case(Camp.Centre, coordToString(i, j));
+				if (j == 3)
+					if (i % 2 == 0)
+						plateau[i][j] = new Case(Camp.Centre, coordToString(i,
+								j));
+					else
+						plateau[i][j] = new Case(Camp.Nord, coordToString(i, j));
 			}
 		}
 	}
@@ -24,59 +37,63 @@ public class Plateau {
 	}
 
 	// a verifier
-	public int[] stringToCoord(String coord) {
+	private int[] stringToCoord(String coord) {
 		int[] res = new int[2];
-		res[0] = coord.charAt(0)-64;
-		res[1] = coord.charAt(1)-48;
+		res[0] = coord.charAt(0) - 65;
+		res[1] = coord.charAt(1) - 49;
 		return res;
 	}
 
 	// a verifier
-	public void placerPiece(String coord, Piece piece) throws Exception {
-		int[] numCoord = stringToCoord(coord);
-		// les coordonnées existent ?
-		if (numCoord[0] > COLONNES || numCoord[1] > LIGNES) {
-			throw new Exception();
-		}
-		// la piece est-elle placée dans le bon camp ?
-		if (plateau[numCoord[0]][numCoord[1]].getCamp().toString()
-				.equals(piece.getCamp().toString())) {
-			// y a-t-il une piece déjà placée à cette endroit ?
-			if (!caseOccupee(coord)) {
-				plateau[numCoord[0]][numCoord[1]].setPiece(piece);
+	public boolean placerPiece(String coord, Piece piece) {
+		boolean res = true;
+		try {
+			
+			int[] numCoord = stringToCoord(coord);
+			if (numCoord[0] > COLONNES || numCoord[1] > LIGNES
+					|| coord.length() > 2) {
+				res = false;
+				throw new CoordonneeInconnuException();
 			}
-		} else {
-			throw new Exception();
+			if (plateau[numCoord[0]][numCoord[1]].getCamp() == piece.getCamp()) {
+				if (!caseOccupee(coord)) {
+					plateau[numCoord[0]][numCoord[1]].setPiece(piece);
+				} else {
+					res = false;
+					throw new CaseOccupeeException();
+				}
+			} else {
+				res = false;
+				throw new MauvaisCampException();
+			}
+		} catch (CoordonneeInconnuException e) {
+		} catch (CaseOccupeeException e) {
+		} catch (MauvaisCampException e) {
 		}
+		return res;
 	}
 
 	// a verifier
-	public Piece retirerPiece(String coord) {
+	public void retirerPiece(String coord) {
 		// bonne coordonné ?
-		Piece p = null;
-
-		int[] numCoord = stringToCoord(coord);
-		if (numCoord[0] > COLONNES || numCoord[0] > LIGNES) {
-			try {
-				throw new Exception();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		try {
+			int[] numCoord = stringToCoord(coord);
+			if (numCoord[0] > COLONNES || numCoord[0] > LIGNES) {
+				throw new CoordonneeInconnuException();
 			}
-		}
-		// ya til une piece a cette endroit ?
-		if (this.caseOccupee(coord)) {
-			p = plateau[numCoord[0]][numCoord[1]].getPiece();
-			plateau[numCoord[0]][numCoord[1]].setPiece(null);
-		} else {
-			try {
-				throw new Exception();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			// ya til une piece a cette endroit ?
+			if (this.caseOccupee(coord)) {
+				plateau[numCoord[0]][numCoord[1]].setPiece(null);
+			} else {
+				try {
+					throw new Exception();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
+		} catch (CoordonneeInconnuException e) {
 		}
-		return p;
 	}
 
 	// ok
@@ -92,12 +109,12 @@ public class Plateau {
 
 	public String toString() {
 		String str = new String();
-		for (int i = 0; i < (COLONNES + 1); ++i) {
-			for (int j = 0; j < (LIGNES + 1); ++j) {
+		for (int i = 0; i < (COLONNES); ++i) {
+			for (int j = 0; j < (LIGNES); ++j) {
 				if (plateau[i][j].estOccupée()) {
 					str += plateau[i][j].getPiece().getTypePiece().toString();
 				} else {
-					str += "#";
+					str += "_ ";
 				}
 			}
 			str += "\n";
