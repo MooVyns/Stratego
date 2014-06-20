@@ -18,9 +18,9 @@ public class OperationCoordonnées {
 		}
 		
 		public static boolean verfiCoordonnees(String coord, Plateau plateau) {
-			for (int i = 0; i < plateau.getPlateau().length; ++i) {
-				for (int j = 0; j < plateau.getPlateau().length; ++j) {
-					if (coord.equals(plateau.getPlateau()[i][j])) {
+			for (int i = 0; i < plateau.getNbColonnes(); ++i) {
+				for (int j = 0; j < plateau.getNbLignes(); ++j) {
+					if (coord.equals(plateau.getCase(coord).getCoordonnees())) {
 						return true;
 					}
 				}

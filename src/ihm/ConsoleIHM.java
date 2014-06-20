@@ -35,8 +35,8 @@ public class ConsoleIHM implements IHM {
 		for (int i = 0; i < TypePiece.values().length; i++)
 			System.out.println(i
 					+ "  "
-					+ TypePiece.values()[i].toString()
-					+ "  "
+					+ TypePiece.values()[i].representation()
+					+ "  => "+ TypePiece.values()[i].toString()+ "  "
 					+ (j.getReserve().getNombrePieceDisponible(TypePiece
 							.values()[i])) + " pièce(s) disponible(s)"); // afficher nb de pieces restantes
 												// en réserve
