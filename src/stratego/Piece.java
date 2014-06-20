@@ -21,8 +21,8 @@ public class Piece {
 		return this.typePiece;
 	}
 
-	public String getCamp() {
-		return this.camp.toString();
+	public Camp getCamp() {
+		return this.camp;
 	}
 
 	public String getCoordonnees() {

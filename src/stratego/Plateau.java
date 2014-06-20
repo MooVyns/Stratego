@@ -48,7 +48,7 @@ public class Plateau {
 	public boolean placerPiece(String coord, Piece piece) {
 		boolean res = true;
 		try {
-			
+
 			int[] numCoord = stringToCoord(coord);
 			if (numCoord[0] > COLONNES || numCoord[1] > LIGNES
 					|| coord.length() > 2) {
@@ -121,26 +121,26 @@ public class Plateau {
 		}
 		return str;
 	}
-	
-	
-	public void affrontement(Piece pieceDeplacer, Piece pieceEnAttente){
+
+	public void affrontement(Piece pieceDeplacer, Piece pieceEnAttente) {
 		String coordPieceEnAttente = pieceEnAttente.getCoordonnees();
-		//La piece deplacée est la plus forte
-		if(pieceDeplacer.estSupérieur(pieceEnAttente)){
+		String coordOriginePieceDeplacer = pieceDeplacer.getCoordonnees();
+		int coordonnees[] = stringToCoord(coordOriginePieceDeplacer);
+
+		// La piece deplacée est la plus forte
+		if (pieceDeplacer.estSupérieur(pieceEnAttente)) {
 			pieceEnAttente.supprimer();
-			this.placerPiece(coordPieceEnAttente,pieceDeplacer);
+			this.placerPiece(coordPieceEnAttente, pieceDeplacer);
 		}
-		//La piece deplacer est la moins forte
-		if(){
-			
-		}
-		
-		//Egalité
-		else{
-			//Egalité !!!
+		// La piece deplacer est la moins forte
+		if (pieceEnAttente.estSupérieur(pieceDeplacer)) {
+			pieceDeplacer.setCase(null);// la piece ne pointe plus sur une case
+			this.plateau[coordonnees[0]][coordonnees[1]].setPiece(null);
+			// la case ne pointe plus sur la piece
+		} else {
+			// Egalité !!!
 		}
 	}
-	
 
 	public String etatPlateau() {
 		String etat = new String();
