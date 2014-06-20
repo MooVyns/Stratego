@@ -1,6 +1,8 @@
 package stratego;
 
+
 import mouvement.FabriqueImplementation;
+
 
 public class Piece {
 	private TypePiece typePiece;
@@ -19,8 +21,8 @@ public class Piece {
 		return this.typePiece;
 	}
 
-	public Camp getCamp() {
-		return this.camp;
+	public String getCamp() {
+		return this.camp.toString();
 	}
 
 	public String getCoordonnees() {
@@ -39,6 +41,9 @@ public class Piece {
 	public void supprimer(){
 		setCase(null);
 	}
+
+
+
 
 	public boolean surPlateau() {
 		return c != null;
