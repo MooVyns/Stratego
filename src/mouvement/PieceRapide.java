@@ -13,9 +13,5 @@ public class PieceRapide extends ImplementationMouvement {
 		return false;
 	}
 
-	@Override
-	public void jouer() {
-		// TODO Auto-generated method stub		
-	}
 
 }

@@ -44,7 +44,9 @@ public class Piece {
 		setCase(null);
 	}
 
-
+	public String calculNouvellesCoordonnée (Direction direction, int nbrCases){
+		return this.implementation.calculNouvellesCoordonnée(this.getCoordonnees(), direction, nbrCases);		
+	}
 
 
 	public boolean surPlateau() {

@@ -13,35 +13,23 @@ public class Plateau {
 		for (int i = 0; i < COLONNES; ++i) {
 			for (int j = 0; j < LIGNES; ++j) {
 				if (j > 4)
-					plateau[i][j] = new Case(Camp.Sud, coordToString(i, j));
+					plateau[i][j] = new Case(Camp.Sud,
+							OperationCoordonnées.coordToString(i, j));
 				if (j < 3)
-					plateau[i][j] = new Case(Camp.Nord, coordToString(i, j));
+					plateau[i][j] = new Case(Camp.Nord,
+							OperationCoordonnées.coordToString(i, j));
 				if (j == 4)
-					plateau[i][j] = new Case(Camp.Centre, coordToString(i, j));
+					plateau[i][j] = new Case(Camp.Centre,
+							OperationCoordonnées.coordToString(i, j));
 				if (j == 3)
 					if (i % 2 == 0)
-						plateau[i][j] = new Case(Camp.Centre, coordToString(i,
-								j));
+						plateau[i][j] = new Case(Camp.Centre,
+								OperationCoordonnées.coordToString(i, j));
 					else
-						plateau[i][j] = new Case(Camp.Nord, coordToString(i, j));
+						plateau[i][j] = new Case(Camp.Nord,
+								OperationCoordonnées.coordToString(i, j));
 			}
 		}
-	}
-
-	// ok
-	private String coordToString(int i, int j) {
-		String res = new String();
-		res += (char) (i + 64);
-		res += Integer.toString(j);
-		return res;
-	}
-
-	// a verifier
-	private int[] stringToCoord(String coord) {
-		int[] res = new int[2];
-		res[0] = coord.charAt(0) - 65;
-		res[1] = coord.charAt(1) - 49;
-		return res;
 	}
 
 	// a verifier
@@ -49,7 +37,7 @@ public class Plateau {
 		boolean res = true;
 		try {
 
-			int[] numCoord = stringToCoord(coord);
+			int[] numCoord = OperationCoordonnées.stringToCoord(coord);
 			if (numCoord[0] > COLONNES || numCoord[1] > LIGNES
 					|| coord.length() > 2) {
 				res = false;
@@ -77,7 +65,7 @@ public class Plateau {
 	public void retirerPiece(String coord) {
 		// bonne coordonné ?
 		try {
-			int[] numCoord = stringToCoord(coord);
+			int[] numCoord = OperationCoordonnées.stringToCoord(coord);
 			if (numCoord[0] > COLONNES || numCoord[0] > LIGNES) {
 				throw new CoordonneeInconnuException();
 			}
@@ -88,7 +76,6 @@ public class Plateau {
 				try {
 					throw new Exception();
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -98,23 +85,33 @@ public class Plateau {
 
 	// ok
 	public boolean caseOccupee(String coord) {
-		int[] numCoord = stringToCoord(coord);
+		int[] numCoord = OperationCoordonnées.stringToCoord(coord);
 		return plateau[numCoord[0]][numCoord[1]].estOccupée();
 	}
 
 	public Piece getPiece(String coord) {
-		int[] numCoord = stringToCoord(coord);
+		int[] numCoord = OperationCoordonnées.stringToCoord(coord);
 		return plateau[numCoord[0]][numCoord[1]].getPiece();
 	}
 
 	public String toString() {
-		String str = new String();
-		for (int i = 0; i < (COLONNES); ++i) {
-			for (int j = 0; j < (LIGNES); ++j) {
-				if (plateau[i][j].estOccupée()) {
-					str += plateau[i][j].getPiece().getTypePiece().toString();
-				} else {
-					str += "_ ";
+		String str = "  ";
+		for (int i = 0; i < COLONNES; ++i)
+			str += (char) ('A' + i) + " ";
+
+		str += "\n";
+		for (int i = 0; i < LIGNES; ++i) {
+			str += (i + 1) + " ";
+			for (int j = 0; j < COLONNES; ++j) {
+				if (plateau[j][i].estOccupée())
+					str += plateau[j][i].getPiece().getTypePiece().toString();
+				else {
+					if (plateau[j][i].getCamp() == Camp.Nord)
+						str += "^ ";
+					if (plateau[j][i].getCamp() == Camp.Sud)
+						str += "~ ";
+					if (plateau[j][i].getCamp() == Camp.Centre)
+						str += "- ";
 				}
 			}
 			str += "\n";
@@ -122,17 +119,15 @@ public class Plateau {
 		return str;
 	}
 
-
 	public Case[][] getPlateau() {
-			return plateau;
+		return plateau;
 	}
-			
-	
 
 	public void affrontement(Piece pieceDeplacer, Piece pieceEnAttente) {
 		String coordPieceEnAttente = pieceEnAttente.getCoordonnees();
 		String coordOriginePieceDeplacer = pieceDeplacer.getCoordonnees();
-		int coordonnees[] = stringToCoord(coordOriginePieceDeplacer);
+		int coordonnees[] = OperationCoordonnées
+				.stringToCoord(coordOriginePieceDeplacer);
 
 		// La piece deplacée est la plus forte
 		if (pieceDeplacer.estSupérieur(pieceEnAttente)) {
@@ -145,7 +140,7 @@ public class Plateau {
 			this.plateau[coordonnees[0]][coordonnees[1]].setPiece(null);
 			// la case ne pointe plus sur la piece
 		} else {
-			//Suppression des 2 pieces
+			// Suppression des 2 pieces
 			// Egalité !!!
 		}
 	}
@@ -167,6 +162,30 @@ public class Plateau {
 			nbCasesVide = 0;
 		}
 		return etat;
+	}
+
+	public void jouer(Direction direction, int nbrCases, String coord) {
+		try {
+			if ((this.getPiece(coord)) != null) {
+				String newCoord = this.getPiece(coord)
+						.calculNouvellesCoordonnée(direction, nbrCases);
+				int[] newCoordInt = OperationCoordonnées
+						.stringToCoord(newCoord);
+				if (OperationCoordonnées.verfiCoordonnees(newCoord, this)) {
+					// la case est occupé
+					if (plateau[newCoordInt[0]][newCoordInt[1]].estOccupée()) {
+						// affrontement();
+					} else {
+						// deplacer la piece
+					}
+				} else
+					throw new CoordonneeInconnuException();
+			} else
+				System.out.println("la piece n'existe pas");
+		} catch (CoordonneeInconnuException e) {
+
+		}
+
 	}
 
 }

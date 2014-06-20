@@ -9,12 +9,6 @@ public class PieceLente extends ImplementationMouvement {
 		this.setDeplacementMax(1);
 	}
 	
-	@Override
-	public void jouer() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
+
 
 }

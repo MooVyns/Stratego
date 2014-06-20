@@ -15,6 +15,12 @@ public abstract class ImplementationMouvement {
 	public boolean estJouable() {
 		return this.getDeplacementMax() != 0;
 	}
-	
-	public abstract void jouer();
+
+
+	public String calculNouvellesCoordonnée(String coord, Direction direction, int nbrCases) {
+		int [] coordStr = OperationCoordonnées.stringToCoord(coord);
+		coordStr[0]+=(direction.getColonne() * nbrCases);
+		coordStr[1]+=(direction.getLigne() * nbrCases);		
+		return OperationCoordonnées.coordToString(coordStr[0], coordStr[1]);
+	}
 }

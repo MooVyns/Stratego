@@ -1,9 +1,11 @@
 package joueur;
 
+import exceptions.CoordonneeInconnuException;
 import exceptions.PieceNonDisponibleException;
 import stratego.AbstractJoueur;
 import stratego.Camp;
 import stratego.Direction;
+import stratego.OperationCoordonnées;
 import stratego.Piece;
 import stratego.Plateau;
 import stratego.TypePiece;
@@ -36,36 +38,15 @@ public class Joueur extends AbstractJoueur {
 	}
 
 	
-	public boolean verfiCoordonnees(String coord) {
-		for (int i = 0; i < this.plateau.getPlateau().length; ++i) {
-			for (int j = 0; j < this.plateau.getPlateau().length; ++j) {
-				if (coord.equals(this.plateau.getPlateau()[i][j])) {
-					return true;
-				}
-			}
-		}
-		return false;
-
-	}
-
 	@Override
-	public void jouer(Direction dir, int nbrCases, String coord) {
-		
-		Piece p = null;
-		//Verification des coordonnées
-		if(verfiCoordonnees(coord))
-			//Récupération de la pièce la piece
-			 p = plateau.getPiece(coord);
-
-		// Verification de la possibilité de déplacement(type)
-
-		if (p != null) {
-			// jouer piece
+	public void jouer(Direction direction, int nbrCases, String coord) {
+		try {
+			if (OperationCoordonnées.verfiCoordonnees(coord,plateau)) {
+				plateau.jouer(direction,nbrCases,coord);
+				
+			} else
+				throw new CoordonneeInconnuException();
+		} catch (CoordonneeInconnuException e) {
 		}
-
-		// Calcul des nouvelles coordonnées
-		String coorPiece = p.getCoordonnees();
-
-		// Verification des coordonnées
 	}
 }

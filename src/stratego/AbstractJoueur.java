@@ -5,7 +5,6 @@ public abstract class AbstractJoueur {
 	private String nom;
 	private Camp camp;
 	private Reserve reserve;
-	
 
 	public AbstractJoueur(String nom, Camp camp, Plateau plateau) {
 		this.nom = nom;
@@ -22,14 +21,14 @@ public abstract class AbstractJoueur {
 		return camp;
 	}
 
-	public Reserve getReserve(){
+	public Reserve getReserve() {
 		return reserve;
 	}
-	
+
 	public abstract void placerPiece(String coord, TypePiece type);
 
 	public abstract void retirerPiece(String coord);
 
-	public abstract void jouer(Direction dir, int nbrCases,String coord);
+	public abstract void jouer(Direction dir, int nbrCases, String coord);
 
 }
