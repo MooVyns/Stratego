@@ -25,7 +25,7 @@ public class PlateauTest {
 		System.out.println("TEST COORDONNEES");
 		plateau.placerPiece("R1", new Piece(TypePiece.Capitaine, Camp.Nord));
 		plateau.placerPiece("AD", new Piece(TypePiece.Capitaine, Camp.Nord));
-		plateau.placerPiece("A20", new Piece(TypePiece.Capitaine, Camp.Nord));//probleme !!
+		plateau.placerPiece("A20", new Piece(TypePiece.Capitaine, Camp.Nord));
 		
 		//TEST CASE OCCUPEE
 		System.out.println("TEST CASE OCCUPEE");

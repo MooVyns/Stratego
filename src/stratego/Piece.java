@@ -25,6 +25,8 @@ public class Piece {
 	public String getCoordonnees() {
 		return c.getCoordonnees();
 	}
+	
+	
 
 	public boolean surPlateau() {
 		return c != null;

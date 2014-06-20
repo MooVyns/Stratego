@@ -122,6 +122,11 @@ public class Plateau {
 		return str;
 	}
 
+	public Case[][] getPlateau() {
+			return plateau;
+		}
+			
+	
 	public String etatPlateau() {
 		String etat = new String();
 		int nbCasesVide = 0;

@@ -9,6 +9,7 @@ import stratego.Plateau;
 import stratego.TypePiece;
 
 public class Joueur extends AbstractJoueur {
+
 	public Joueur(String nom, Camp camp, Plateau plateau) {
 		super(nom, camp, plateau);
 	}
@@ -34,12 +35,33 @@ public class Joueur extends AbstractJoueur {
 		}
 	}
 
+	public boolean verfiCoordonnees(String coord) {
+		for (int i = 0; i < this.plateau.getPlateau().length; ++i) {
+			for (int j = 0; j < this.plateau.getPlateau().length; ++j) {
+				if (coord.equals(this.plateau.getPlateau()[i][j])) {
+					return true;
+				}
+			}
+		}
+		return false;
+
+	}
+
 	@Override
 	public void jouer(Direction dir, int nbrCases, String coord) {
-		//Récupération de la pièce la piece
-		//Verification de la possibilité de déplacement(type)
-		//Calcul des nouvelles coordonnées
-		//Verification des coordonnées
-		//Verification de qu'il n'y a pas de piece a cette endroit
+		// Récupération de la pièce la piece
+		Piece p = plateau.getPiece(coord);
+
+		// Verification de la possibilité de déplacement(type)
+
+		if (p != null) {
+			// jouer piece
+		}
+
+		// Calcul des nouvelles coordonnées
+		String coorPiece = p.getCoordonnees();
+
+		// Verification des coordonnées
+
 	}
 }
