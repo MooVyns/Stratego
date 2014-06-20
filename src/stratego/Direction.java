@@ -9,24 +9,16 @@ public enum Direction {
 	private int ligne;
 
 	Direction(int colonne, int ligne) {
-		this.setColonne(colonne);
-		this.setLigne(ligne);
+		this.colonne = colonne;
+		this.ligne = ligne;
 	}
 
 	public int getLigne() {
 		return ligne;
 	}
 
-	public void setLigne(int ligne) {
-		this.ligne = ligne;
-	}
 
 	public int getColonne() {
 		return colonne;
 	}
-
-	public void setColonne(int colonne) {
-		this.colonne = colonne;
-	}
-
 }

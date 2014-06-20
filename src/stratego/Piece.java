@@ -7,9 +7,8 @@ public class Piece {
 	private Camp camp;
 	private Case c;
 	private ImplementationMouvement implementation;
-	private IFabriqueImplementationMouvement ifabriqueImplementation;
-
-	public Piece(TypePiece typePiece, Camp camp) {
+	
+	public Piece(TypePiece typePiece, Camp camp,IFabriqueImplementationMouvement ifabriqueImplementation ) {
 		this.typePiece = typePiece;
 		this.camp = camp;
 		this.implementation = ifabriqueImplementation.creer(typePiece
@@ -58,7 +57,7 @@ public class Piece {
 		return this.typePiece.getValeur() > p2.getTypePiece().getValeur();
 	}
 
-	public static Piece creerPiece(TypePiece typePiece, Camp camp) {
-		return new Piece(typePiece, camp);
+	public static Piece creerPiece(TypePiece typePiece, Camp camp,IFabriqueImplementationMouvement ifabriqueImplementation) {
+		return new Piece(typePiece, camp, ifabriqueImplementation);
 	}
 }
