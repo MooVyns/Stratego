@@ -12,7 +12,7 @@ public class Plateau {
 		plateau = new Case[COLONNES][LIGNES];
 		for (int i = 0; i < COLONNES; ++i) {
 			for (int j = 0; j < LIGNES; ++j) {
-				if (j > 4)
+				if (j > 4 && j!=8)
 					plateau[i][j] = new Case(Camp.Sud,
 							OperationCoordonnées.coordToString(i, j));
 				if (j < 3)
@@ -27,6 +27,13 @@ public class Plateau {
 								OperationCoordonnées.coordToString(i, j));
 					else
 						plateau[i][j] = new Case(Camp.Nord,
+								OperationCoordonnées.coordToString(i, j));
+				if(j == 8)
+					if (i % 2 == 0)
+						plateau[i][j] = new Case(Camp.Indisponible,
+								OperationCoordonnées.coordToString(i, j));
+					else
+						plateau[i][j] = new Case(Camp.Sud,
 								OperationCoordonnées.coordToString(i, j));
 			}
 		}
@@ -173,6 +180,8 @@ public class Plateau {
 						str += "~ ";
 					if (plateau[j][i].getCamp() == Camp.Centre)
 						str += "- ";
+					if (plateau[j][i].getCamp() == Camp.Indisponible)
+						str += "  ";
 				}
 			}
 			str += "\n";

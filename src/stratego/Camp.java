@@ -4,7 +4,8 @@ public enum Camp {
 
 	Nord(), 
 	Sud(),
-	Centre();
+	Centre(),
+	Indisponible();
 
 	Camp() {
 
