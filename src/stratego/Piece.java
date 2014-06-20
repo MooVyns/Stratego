@@ -28,15 +28,11 @@ public class Piece {
 		return c.getCoordonnees();
 	}
 
-<<<<<<< HEAD
-	////////
 	public boolean estJouable() {
 		return false;
-		// return (
 	}
 
-=======
->>>>>>> 2d7afaa6a542c1d2c2b909c89051d4916cc7bedd
+
 	public boolean surPlateau() {
 		return c != null;
 	}
