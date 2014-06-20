@@ -2,17 +2,19 @@ package stratego;
 
 public enum Camp {
 
-	Nord(), 
-	Sud(),
-	Centre(),
-	Indisponible();
+	Nord("Nord"), 
+	Sud("Sud"),
+	Centre("Centre"),
+	Indisponible("Indisponible");
 
-	Camp() {
-
+	private String nom;
+	
+	Camp(String nom) {
+		this.nom = nom;
 	}
 
 	public String toString() {
-		return "e";
+		return this.nom;
 	}
 
 }

@@ -1,19 +1,18 @@
 package stratego;
 
 
-import mouvement.FabriqueImplementation;
-
 
 public class Piece {
 	private TypePiece typePiece;
 	private Camp camp;
 	private Case c;
 	private ImplementationMouvement implementation;
+	private IFabriqueImplementationMouvement ifabriqueImplementation;
 
 	public Piece(TypePiece typePiece, Camp camp) {
 		this.typePiece = typePiece;
 		this.camp = camp;
-		this.implementation = FabriqueImplementation.creer(typePiece
+		this.implementation = ifabriqueImplementation.creer(typePiece
 				.getValeur());
 	}
 
@@ -29,7 +28,9 @@ public class Piece {
 		return c.getCoordonnees();
 	}
 	
-	
+	public int getDeplacementMax(){
+		return this.implementation.getDeplacementMax();
+	}
 
 	public boolean estJouable() {
 		return implementation.estJouable();

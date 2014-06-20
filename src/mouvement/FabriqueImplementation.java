@@ -1,10 +1,11 @@
 package mouvement;
 
+import stratego.IFabriqueImplementationMouvement;
 import stratego.ImplementationMouvement;
 import stratego.TypePiece;
 
-public class FabriqueImplementation {
-	public static ImplementationMouvement creer(int i){
+public class FabriqueImplementation implements IFabriqueImplementationMouvement{
+	public ImplementationMouvement creer(int i){
 		if(i == TypePiece.Bombe.getValeur() || i == TypePiece.Drapeau.getValeur())
 			return new PieceImmobile();
 		if(i == TypePiece.Eclaireur.getValeur())
