@@ -1,5 +1,7 @@
 package stratego;
 
+import joueur.Joueur;
+
 public class Piece {
 	private TypePiece typePiece;
 	private Camp camp;
@@ -15,8 +17,8 @@ public class Piece {
 		return this.typePiece;
 	}
 
-	public Camp getCamp() {
-		return this.camp;
+	public String getCamp() {
+		return this.camp.toString();
 	}
 
 	public String getCoordonnees() {
@@ -26,6 +28,7 @@ public class Piece {
 	////////
 	public boolean estJouable() {
 		return false;
+		// return (
 	}
 
 	public boolean surPlateau() {
