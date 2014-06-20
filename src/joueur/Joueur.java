@@ -1,5 +1,6 @@
 package joueur;
 
+import exceptions.PieceNonDisponibleException;
 import stratego.AbstractJoueur;
 import stratego.Camp;
 import stratego.Direction;
@@ -7,8 +8,7 @@ import stratego.Piece;
 import stratego.Plateau;
 import stratego.TypePiece;
 
-
-public class Joueur extends AbstractJoueur {	
+public class Joueur extends AbstractJoueur {
 	public Joueur(String nom, Camp camp, Plateau plateau) {
 		super(nom, camp, plateau);
 	}
@@ -16,21 +16,30 @@ public class Joueur extends AbstractJoueur {
 	@Override
 	public void placerPiece(String coord, TypePiece typePiece) {
 		if (this.getReserve().pieceEstDisponible(typePiece)) {
-			plateau.placerPiece(coord, new Piece(typePiece, this.getCamp()));
-			this.getReserve().retirerPiece(typePiece);
-		}
+			if (plateau
+					.placerPiece(coord, new Piece(typePiece, this.getCamp())))
+				this.getReserve().retirerPiece(typePiece);
+		} else
+			try {
+				throw new PieceNonDisponibleException();
+			} catch (PieceNonDisponibleException e) {
+			}
 	}
 
 	@Override
 	public void retirerPiece(String coord) {
-		if (getCamp().equals(coord)){
+		if (getCamp().equals(coord)) {
 			plateau.retirerPiece(coord);
-			//this.getReserve().remettrePiece(typePiece);
+			// this.getReserve().remettrePiece(typePiece);
 		}
 	}
 
 	@Override
-	public void jouer(Direction dir, int nbrCases) {
-
+	public void jouer(Direction dir, int nbrCases, String coord) {
+		//Récupération de la pièce la piece
+		//Verification de la possibilité de déplacement(type)
+		//Calcul des nouvelles coordonnées
+		//Verification des coordonnées
+		//Verification de qu'il n'y a pas de piece a cette endroit
 	}
 }

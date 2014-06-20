@@ -30,6 +30,6 @@ public abstract class AbstractJoueur {
 
 	public abstract void retirerPiece(String coord);
 
-	public abstract void jouer(Direction dir, int nbrCases);
+	public abstract void jouer(Direction dir, int nbrCases,String coord);
 
 }

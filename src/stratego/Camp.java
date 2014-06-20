@@ -3,7 +3,8 @@ package stratego;
 public enum Camp {
 
 	Nord(), 
-	Sud();
+	Sud(),
+	Centre();
 
 	Camp() {
 

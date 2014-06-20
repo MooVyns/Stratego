@@ -9,10 +9,21 @@ public class Plateau {
 
 	// a finir
 	public Plateau() {
-		plateau = new Case[COLONNES + 1][LIGNES + 1];
-		for (int i = 0; i < (COLONNES + 1); ++i) {
-			for (int j = 0; j < (LIGNES + 1); ++j) {
-				plateau[i][j] = new Case(Camp.Nord, coordToString(i, j));
+		plateau = new Case[COLONNES][LIGNES];
+		for (int i = 0; i < COLONNES; ++i) {
+			for (int j = 0; j < LIGNES; ++j) {
+				if (j > 4)
+					plateau[i][j] = new Case(Camp.Sud, coordToString(i, j));
+				if (j < 3)
+					plateau[i][j] = new Case(Camp.Nord, coordToString(i, j));
+				if (j == 4)
+					plateau[i][j] = new Case(Camp.Centre, coordToString(i, j));
+				if (j == 3)
+					if (i % 2 == 0)
+						plateau[i][j] = new Case(Camp.Centre, coordToString(i,
+								j));
+					else
+						plateau[i][j] = new Case(Camp.Nord, coordToString(i, j));
 			}
 		}
 	}
@@ -34,25 +45,32 @@ public class Plateau {
 	}
 
 	// a verifier
-	public void placerPiece(String coord, Piece piece) {
+	public boolean placerPiece(String coord, Piece piece) {
+		boolean res = true;
 		try {
+			
 			int[] numCoord = stringToCoord(coord);
-			if (numCoord[0] > COLONNES || numCoord[1] > LIGNES || coord.length() > 2) {
+			if (numCoord[0] > COLONNES || numCoord[1] > LIGNES
+					|| coord.length() > 2) {
+				res = false;
 				throw new CoordonneeInconnuException();
 			}
 			if (plateau[numCoord[0]][numCoord[1]].getCamp() == piece.getCamp()) {
 				if (!caseOccupee(coord)) {
 					plateau[numCoord[0]][numCoord[1]].setPiece(piece);
 				} else {
+					res = false;
 					throw new CaseOccupeeException();
 				}
 			} else {
+				res = false;
 				throw new MauvaisCampException();
 			}
 		} catch (CoordonneeInconnuException e) {
 		} catch (CaseOccupeeException e) {
 		} catch (MauvaisCampException e) {
 		}
+		return res;
 	}
 
 	// a verifier
@@ -78,8 +96,6 @@ public class Plateau {
 		}
 	}
 
-	
-
 	// ok
 	public boolean caseOccupee(String coord) {
 		int[] numCoord = stringToCoord(coord);
@@ -98,7 +114,7 @@ public class Plateau {
 				if (plateau[i][j].estOccupée()) {
 					str += plateau[i][j].getPiece().getTypePiece().toString();
 				} else {
-					str += "#";
+					str += "_ ";
 				}
 			}
 			str += "\n";
