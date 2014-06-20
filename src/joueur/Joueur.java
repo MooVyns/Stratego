@@ -2,6 +2,7 @@ package joueur;
 
 import stratego.AbstractJoueur;
 import stratego.Camp;
+import stratego.Direction;
 import stratego.Piece;
 import stratego.Plateau;
 import stratego.TypePiece;
@@ -29,7 +30,7 @@ public class Joueur extends AbstractJoueur {
 	}
 
 	@Override
-	public void jouer() {
+	public void jouer(Direction dir, int nbrCases) {
 
 	}
 }

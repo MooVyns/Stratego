@@ -41,7 +41,9 @@ public class AppliStratego {
 	public static void main(String[] args) {
 		AppliStratego app = new AppliStratego(new FabriqueJoueur(),
 				new ConsoleIHM());
+		System.out.println(app.plateau.toString());
 		app.initJoueur();
 		app.PlacementDesPieces();
+		
 	}
 }

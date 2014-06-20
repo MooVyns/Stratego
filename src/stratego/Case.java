@@ -33,4 +33,6 @@ public class Case {
 	public void retirerPiece(){
 		this.piece = null;
 	}
+	
+	
 }
