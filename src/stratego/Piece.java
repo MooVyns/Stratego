@@ -28,6 +28,8 @@ public class Piece {
 	public String getCoordonnees() {
 		return c.getCoordonnees();
 	}
+	
+	
 
 	public boolean estJouable() {
 		return implementation.estJouable();

@@ -122,6 +122,13 @@ public class Plateau {
 		return str;
 	}
 
+
+	public Case[][] getPlateau() {
+			return plateau;
+	}
+			
+	
+
 	public void affrontement(Piece pieceDeplacer, Piece pieceEnAttente) {
 		String coordPieceEnAttente = pieceEnAttente.getCoordonnees();
 		String coordOriginePieceDeplacer = pieceDeplacer.getCoordonnees();
