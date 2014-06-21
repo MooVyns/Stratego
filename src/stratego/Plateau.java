@@ -202,15 +202,37 @@ public class Plateau {
 	public String testdessin() {
 
 		String str = "";
-		String m1 = "     ___     ___     ___      \n";
-		String m2 = " ___/   \\___/   \\___/   \\___  \n";		
-		String m3 = "/   \\___/   \\___/   \\___/   \\_ \n";
-		/*String m4 = "\\   /   \\   /   \\   /   \\   / \n";*/
-		str+=m1;
-		for(int i =0; i< 10; i++){
-			str+=m2+m3;
+		String m1 = "     ___     ___     ___      \n";// haut du plateau
+
+		String m2 = " ___/ ";
+		for (int i = 0; i < 3; i++) {
+			if (i != 2)
+				m2 += 1 + " \\___/ ";
+			else
+				m2 += 1 + " \\___\n";
+
 		}
-		return str;
+		str += m1 + m2;
+		for (int i = 0; i < LIGNES-1; i++) {
+			String m3 = "/ ";
+			for (int j = 0; j < 4; j++) {
+				if (j != 3)
+					m3 += 1 + " \\___/ ";
+				else
+					m3 += 1 + " \\ \n";
+			}
+
+			String m4 = "\\___/ ";
+			for (int j = 0; j < 3; j++) {
+				m4 += 1 + " \\___/ ";
+			}
+
+			m4 += "  \n";			
+			str += m3 + m4;
+		}
+
+		String m5 = "    \\___/   \\___/   \\___/ \n";
+		return str + m5;
 	}
 
 	public String etatPlateau() {

@@ -18,7 +18,6 @@ public class Joueur extends AbstractJoueur {
 	@Override
 	public void placerPiece(String coord, TypePiece typePiece) {
 		if (this.getReserve().pieceEstDisponible(typePiece)) {
-			
 			if (plateau
 					.placerPiece(coord, new Piece(typePiece, this.getCamp())))
 				this.getReserve().retirerPiece(typePiece);
@@ -37,13 +36,12 @@ public class Joueur extends AbstractJoueur {
 		}
 	}
 
-	
 	@Override
 	public void jouer(Direction direction, int nbrCases, String coord) {
 		try {
-			if (OperationCoordonnées.verfiCoordonnees(coord,plateau)) {
-				plateau.jouer(direction,nbrCases,coord);
-				
+			if (OperationCoordonnées.verfiCoordonnees(coord, plateau)) {
+				plateau.jouer(direction, nbrCases, coord);
+
 			} else
 				throw new CoordonneeInconnuException();
 		} catch (CoordonneeInconnuException e) {

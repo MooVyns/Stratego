@@ -9,7 +9,7 @@ import stratego.TypePiece;
 
 public class ConsoleIHM implements IHM {
 	private Scanner sc;
-	
+
 	public ConsoleIHM() {
 		sc = new Scanner(System.in);
 	}
@@ -33,21 +33,19 @@ public class ConsoleIHM implements IHM {
 	public TypePiece choixPiece(AbstractJoueur j) {
 		System.out.println("Quelle pièce voulez vous placer ?");
 		for (int i = 0; i < TypePiece.values().length; i++)
-			System.out.println(i
+			System.out.println(TypePiece.values()[i].representation()
+					+ "  => "
+					+ TypePiece.values()[i].toString()
 					+ "  "
-					+ TypePiece.values()[i].representation()
-					+ "  => "+ TypePiece.values()[i].toString()+ "  "
 					+ (j.getReserve().getNombrePieceDisponible(TypePiece
-							.values()[i])) + " pièce(s) disponible(s)"); // afficher nb de pieces restantes
-												// en réserve
-		// Ajouter la verification sur chaine de caratère - conversion en int
+							.values()[i])) + " pièce(s) disponible(s)"); 
 		String choix = sc.next();
-		if (Integer.parseInt(choix) > 12 || Integer.parseInt(choix) < 0) {
+		/*if (Integer.parseInt(choix) > 12 || Integer.parseInt(choix) < 0) {
 			System.out
 					.println("La pièce non identifiée. Tapez un nombre entre 0 et 12.");
-		} else
-			return TypePiece.values()[Integer.parseInt(choix)];
-		return null;
+		} else*/
+			return TypePiece.getTypePiece(choix);
+		
 	}
 
 	public String choixCoordonnees() {

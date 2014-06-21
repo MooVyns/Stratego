@@ -32,9 +32,13 @@ public enum TypePiece {
 		return this.valeur;
 	}
 
-	public TypePiece getTypePiece(String c) {
-		return TypePiece.values()[0];
-	} 
+	public static TypePiece getTypePiece(String c) {
+		for (int i = 0; i < TypePiece.values().length; i++) {
+			if (TypePiece.values()[i].representation().equals(c))
+				return TypePiece.values()[i];			
+		}
+		return null ;
+	}
 
 	public int getDeplacementMax() {
 		return this.deplacementMax;
@@ -43,7 +47,5 @@ public enum TypePiece {
 	public boolean estJouable() {
 		return this.deplacementMax != 0;
 	}
-	
-	
-	
+
 }
