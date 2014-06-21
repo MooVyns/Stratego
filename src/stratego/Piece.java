@@ -1,18 +1,14 @@
 package stratego;
 
 
-
 public class Piece {
 	private TypePiece typePiece;
 	private Camp camp;
 	private Case c;
-	private ImplementationMouvement implementation;
 	
-	public Piece(TypePiece typePiece, Camp camp,IFabriqueImplementationMouvement ifabriqueImplementation ) {
+	public Piece(TypePiece typePiece, Camp camp) {
 		this.typePiece = typePiece;
 		this.camp = camp;
-		this.implementation = ifabriqueImplementation.creer(typePiece
-				.getValeur());
 	}
 
 	public TypePiece getTypePiece() {
@@ -28,11 +24,11 @@ public class Piece {
 	}
 	
 	public int getDeplacementMax(){
-		return this.implementation.getDeplacementMax();
+		return this.typePiece.getDeplacementMax();
 	}
 
 	public boolean estJouable() {
-		return implementation.estJouable();
+		return typePiece.estJouable();
 		// + verifier si la piece est bloquer
 	}
 
@@ -44,10 +40,7 @@ public class Piece {
 		setCase(null);
 	}
 
-	public String calculNouvellesCoordonnée (Direction direction, int nbrCases){
-		return this.implementation.calculNouvellesCoordonnée(this.getCoordonnees(), direction, nbrCases);		
-	}
-
+	
 
 	public boolean surPlateau() {
 		return c != null;
@@ -57,7 +50,4 @@ public class Piece {
 		return this.typePiece.getValeur() > p2.getTypePiece().getValeur();
 	}
 
-	public static Piece creerPiece(TypePiece typePiece, Camp camp,IFabriqueImplementationMouvement ifabriqueImplementation) {
-		return new Piece(typePiece, camp, ifabriqueImplementation);
-	}
 }

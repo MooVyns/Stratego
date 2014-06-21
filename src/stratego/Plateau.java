@@ -117,16 +117,17 @@ public class Plateau {
 	public void jouer(Direction direction, int nbrCases, String coord) {
 		try {
 			Piece piece = null;
-			//La piece existe ?
+			// La piece existe ?
 			if (((piece = this.getPiece(coord))) != null) {
-				//Peut-elle bouger autant ?
+				// Peut-elle bouger autant ?
 				if (nbrCases <= piece.getDeplacementMax()) {
 
-					String newCoord = this.getPiece(coord)
-							.calculNouvellesCoordonnée(direction, nbrCases);
+					String newCoord = OperationCoordonnées
+							.calculNouvellesCoordonnée(coord, direction,
+									nbrCases);
 					int[] newCoordInt = OperationCoordonnées
 							.stringToCoord(newCoord);
-					//Les nouvelles coordonnées sont elles corrects ?
+					// Les nouvelles coordonnées sont elles corrects ?
 					if (OperationCoordonnées.verfiCoordonnees(newCoord, this)) {
 						// la case est elle déja occupée ?
 						if (plateau[newCoordInt[0]][newCoordInt[1]]
@@ -194,6 +195,20 @@ public class Plateau {
 				}
 			}
 			str += "\n";
+		}
+		return str;
+	}
+
+	public String testdessin() {
+
+		String str = "";
+		String m1 = "     ___     ___     ___      \n";
+		String m2 = " ___/   \\___/   \\___/   \\___  \n";		
+		String m3 = "/   \\___/   \\___/   \\___/   \\_ \n";
+		/*String m4 = "\\   /   \\   /   \\   /   \\   / \n";*/
+		str+=m1;
+		for(int i =0; i< 10; i++){
+			str+=m2+m3;
 		}
 		return str;
 	}

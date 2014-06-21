@@ -6,7 +6,7 @@ public abstract class AbstractJoueur {
 	private Camp camp;
 	private Reserve reserve;
 
-	public AbstractJoueur(String nom, Camp camp, Plateau plateau,IFabriqueImplementationMouvement ifabriqueImplementation) {
+	public AbstractJoueur(String nom, Camp camp, Plateau plateau) {
 		this.nom = nom;
 		this.camp = camp;
 		this.plateau = plateau;
