@@ -32,9 +32,9 @@ public enum TypePiece {
 		return this.valeur;
 	}
 
-	public TypePiece getTypePiece(int v) {
+	public TypePiece getTypePiece(String c) {
 		return TypePiece.values()[0];
-	}
+	} 
 
 	public int getDeplacementMax() {
 		return this.deplacementMax;
