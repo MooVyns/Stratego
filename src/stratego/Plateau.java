@@ -205,15 +205,20 @@ public class Plateau {
 		String m1 = "     ___     ___     ___      \n";// haut du plateau
 
 		String m2 = " ___/ ";
-		for (int i = 0; i < 3; i++) {
-			if (i != 2)
-				m2 += 1 + " \\___/ ";
-			else
-				m2 += 1 + " \\___\n";
 
+		for (int i = 0; i < COLONNES; i++) {
+			if (i % 2 == 1) {
+				//if (i != 2)
+					m2 += plateau[0][0].toString() + " \\___/ ";
+				//else
+					//m2 += 1 + " \\___\n";
+			}
+		
 		}
+
+		m2+="\n";
 		str += m1 + m2;
-		for (int i = 0; i < LIGNES-1; i++) {
+		for (int i = 0; i < LIGNES - 1; i++) {
 			String m3 = "/ ";
 			for (int j = 0; j < 4; j++) {
 				if (j != 3)
@@ -227,7 +232,7 @@ public class Plateau {
 				m4 += 1 + " \\___/ ";
 			}
 
-			m4 += "  \n";			
+			m4 += "  \n";
 			str += m3 + m4;
 		}
 

@@ -36,5 +36,9 @@ public class Case {
 		this.piece = null;
 	}
 	
+	public String toString(){
+		return "^";
+	}
+	
 	
 }
