@@ -37,7 +37,7 @@ public class Case {
 	}
 	
 	public String toString(){
-		return "^";
+		return camp.getRepresentation();
 	}
 	
 	

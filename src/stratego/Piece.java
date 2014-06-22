@@ -40,7 +40,9 @@ public class Piece {
 		setCase(null);
 	}
 
-	
+	public String toString(){
+		return this.typePiece.representation();
+	}
 
 	public boolean surPlateau() {
 		return c != null;

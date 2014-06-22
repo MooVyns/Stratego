@@ -205,39 +205,65 @@ public class Plateau {
 		String m1 = "     ___     ___     ___      \n";// haut du plateau
 
 		String m2 = " ___/ ";
+		String dessinCase = " \\___/ ";
 
 		for (int i = 0; i < COLONNES; i++) {
 			if (i % 2 == 1) {
-				//if (i != 2)
-					m2 += plateau[0][0].toString() + " \\___/ ";
-				//else
-					//m2 += 1 + " \\___\n";
-			}
-		
-		}
-
-		m2+="\n";
-		str += m1 + m2;
-		for (int i = 0; i < LIGNES - 1; i++) {
-			String m3 = "/ ";
-			for (int j = 0; j < 4; j++) {
-				if (j != 3)
-					m3 += 1 + " \\___/ ";
+				if(i == COLONNES - 2){
+					dessinCase = " \\___";
+				}
+				if (!plateau[i][0].estOccupée())
+					m2 += plateau[i][0].toString() + dessinCase ;
 				else
-					m3 += 1 + " \\ \n";
+					m2 += plateau[i][0].getPiece().toString() + dessinCase ;
 			}
+		}
+		
+		dessinCase = " \\___/ ";
+
+		String m3 = "/ ";
+		for (int j = 0; j < COLONNES; j++) {
+			if (j % 2 == 0)
+				/*if(j == COLONNES -1){
+					dessinCase = " \\";
+				}*/
+				if (!plateau[j][0].estOccupée())
+					m3 += plateau[j][0].toString() + dessinCase ;
+				else
+					m3 += plateau[j][0].getPiece().toString() + dessinCase ;
+		}
+		m3 += "\n";
+		m2 += "\n";
+		str += m1 + m2 + m3;
+		dessinCase = " \\___/ ";
+
+		for (int i = 1; i < LIGNES; i++) {
+			m3 = "/ ";
+			for (int j = 0; j < COLONNES; j++) {
+				if (j % 2 == 0)
+					if (!plateau[j][i].estOccupée())
+						m3 += plateau[j][i].toString() + dessinCase ;
+					else
+						m3 += plateau[j][i].getPiece().toString() + dessinCase ;
+			}
+			m3 += "\n";
+			dessinCase = " \\___/ ";
 
 			String m4 = "\\___/ ";
-			for (int j = 0; j < 3; j++) {
-				m4 += 1 + " \\___/ ";
+			for (int j = 0; j < COLONNES; j++) {
+				if (j % 2 == 1)
+					if (!plateau[j][i].estOccupée())
+						m4 += plateau[j][i].toString() + dessinCase ;
+					else
+						m4 += plateau[j][i].getPiece().toString() + dessinCase ;
 			}
 
 			m4 += "  \n";
-			str += m3 + m4;
+			dessinCase = " \\___/ ";
+			str += m4 + m3;
 		}
 
-		String m5 = "    \\___/   \\___/   \\___/ \n";
-		return str + m5;
+		return str;
 	}
 
 	public String etatPlateau() {
