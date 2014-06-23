@@ -94,13 +94,13 @@ public class Plateau {
 
 	// a verifier
 	public void retirerPiece(String coord) {
-		// bonne coordonné ?
+		// bonne coordonnée ?
 		try {
 			int[] numCoord = OperationCoordonnées.stringToCoord(coord);
 			if (numCoord[0] > COLONNES || numCoord[0] > LIGNES) {
 				throw new CoordonneeInconnuException();
 			}
-			// ya til une piece a cette endroit ?
+			// y a-t-il une piece a cette endroit ?
 			if (this.caseOccupee(coord)) {
 				plateau[numCoord[0]][numCoord[1]].setPiece(null);
 			} else {
@@ -127,16 +127,25 @@ public class Plateau {
 									nbrCases);
 					int[] newCoordInt = OperationCoordonnées
 							.stringToCoord(newCoord);
-					// Les nouvelles coordonnées sont elles corrects ?
+					// Les nouvelles coordonnées sont elles correctes ?
 					if (OperationCoordonnées.verfiCoordonnees(newCoord, this)) {
-						// la case est elle déja occupée ?
+						// la case est-elle déja occupée ?
 						if (plateau[newCoordInt[0]][newCoordInt[1]]
 								.estOccupée()) {
-
-							// affrontement();
+							// affrontement();							
 						} else {
-
-							// deplacer la piece
+							// déplacer la piece 
+							// récup pc avec coord jouer
+							Piece p = getCase(coord).getPiece();
+							int[] coordInt= OperationCoordonnées
+									.stringToCoord(coord);
+							plateau[coordInt[0]][coordInt[1]].getPiece();
+							
+							// placer sur nouvelles coordonnées
+							plateau[newCoordInt[0]][newCoordInt[1]].setPiece(p);
+							// effacer les anciennes coordonnées
+							plateau[coordInt[0]][coordInt[1]].setPiece(null);
+							
 						}
 					} else
 						throw new CoordonneeInconnuException();
