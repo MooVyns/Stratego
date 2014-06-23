@@ -17,7 +17,6 @@ public enum Direction {
 		return ligne;
 	}
 
-
 	public int getColonne() {
 		return colonne;
 	}

@@ -128,11 +128,13 @@ public class Plateau {
 					int[] newCoordInt = OperationCoordonnées
 							.stringToCoord(newCoord);
 					// Les nouvelles coordonnées sont elles correctes ?
+					System.out.println(OperationCoordonnées.verfiCoordonnees(newCoord, this));
 					if (OperationCoordonnées.verfiCoordonnees(newCoord, this)) {
 						// la case est-elle déja occupée ?
 						if (plateau[newCoordInt[0]][newCoordInt[1]]
 								.estOccupée()) {
-							// affrontement();							
+							// affrontement();	
+							System.out.println("ok");
 						} else {
 							// déplacer la piece 
 							// récup pc avec coord jouer
@@ -145,7 +147,7 @@ public class Plateau {
 							plateau[newCoordInt[0]][newCoordInt[1]].setPiece(p);
 							// effacer les anciennes coordonnées
 							plateau[coordInt[0]][coordInt[1]].setPiece(null);
-							
+							System.out.println("ok");
 						}
 					} else
 						throw new CoordonneeInconnuException();
@@ -309,7 +311,7 @@ public class Plateau {
 		return etat;
 	}
 
-	public void cacherPiece(Camp camp) {
+	public void cacherPieces(Camp camp) {
 		for (int i = 0; i < LIGNES; i++) {
 			for (int j = 0; j < COLONNES; j++)
 				if (plateau[j][i].estOccupée()) {

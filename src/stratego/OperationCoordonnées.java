@@ -4,8 +4,8 @@ public class OperationCoordonnées {
 	// ok
 	public static String coordToString(int i, int j) {
 		String res = new String();
-		res += (char) (i + 64);
-		res += Integer.toString(j);
+		res += (char) (i + 65);
+		res += Integer.toString(j+1);
 		return res;
 	}
 
