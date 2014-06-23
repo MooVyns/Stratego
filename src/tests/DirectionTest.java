@@ -11,9 +11,9 @@ public class DirectionTest {
 	@Test
 	public void test() {
 		/**/
-		assertEquals(Direction.bas.getDirection("B"), Direction.bas);
-		assertEquals(Direction.bas.getDirection("HD"), Direction.hautDroite);
-		assertEquals(Direction.bas.getDirection("BG"), Direction.basGauche);
+		assertEquals(Direction.Sud.getDirection("S"), Direction.Sud);
+		assertEquals(Direction.Sud.getDirection("NE"), Direction.NordEst);
+		assertEquals(Direction.Sud.getDirection("SO"), Direction.SudOuest);
 		
 	}
 

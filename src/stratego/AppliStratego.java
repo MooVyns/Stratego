@@ -15,7 +15,8 @@ public class AppliStratego {
 	private IHM ihm;
 	private IEnumDirection enumDir;
 
-	public AppliStratego(IFabriqueJoueur iFabrique, IHM ihm,IEnumDirection enumDir) {
+	public AppliStratego(IFabriqueJoueur iFabrique, IHM ihm,
+			IEnumDirection enumDir) {
 		this.joueurs = new Joueur[2];
 		this.plateau = new Plateau();
 		this.iFabrique = iFabrique;
@@ -62,9 +63,12 @@ public class AppliStratego {
 			this.plateau.rendreVisiblePieces(joueurs[i].getCamp());
 			this.plateau.cacherPieces(joueurs[(i + 1) % 2].getCamp());
 			ihm.afficherPlateau(plateau);
-			System.out.println(joueurs[i].getNom()
-					+ "Quelle piece voulez vous jouer ?");
-			joueurs[i].jouer(ihm.choixDirection(enumDir), 1, ihm.choixCoordonnees());
+			while (true) {//tant qu'il y a une erreur
+				System.out.println(joueurs[i].getNom()
+						+ "Quelle piece voulez vous jouer ?");
+				joueurs[i].jouer(ihm.choixCoordonnees(),
+						ihm.choixDirection(enumDir), ihm.choixNbCases());
+			}
 		}
 
 	}
@@ -79,10 +83,10 @@ public class AppliStratego {
 
 	public static void main(String[] args) {
 		AppliStratego app = new AppliStratego(new FabriqueJoueur(),
-				new ConsoleIHM(), Direction.bas);
+				new ConsoleIHM(), Direction.Sud);
 		System.out.println(app.plateau.toString());
 		app.initJoueur();
-		//app.PlacementDesPieces();
+		// app.PlacementDesPieces();
 
 		app.deroulementPartie();
 

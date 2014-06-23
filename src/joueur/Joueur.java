@@ -41,7 +41,7 @@ public class Joueur extends AbstractJoueur {
 	
 
 	@Override
-	public void jouer(IEnumDirection direction, int nbrCases, String coord) {
+	public void jouer( String coord,IEnumDirection direction, int nbrCases) {
 		try {
 			if (OperationCoordonnées.verfiCoordonnees(coord, plateau)) {
 				plateau.jouer(direction, nbrCases, coord);

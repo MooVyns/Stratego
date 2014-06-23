@@ -33,5 +33,5 @@ public abstract class AbstractJoueur {
 
 	public abstract void retirerPiece(String coord);
 
-	public abstract void jouer(IEnumDirection dir, int nbrCases, String coord);
+	public abstract void jouer(String coord,IEnumDirection direction, int nbrCases);
 }

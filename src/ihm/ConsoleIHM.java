@@ -66,12 +66,19 @@ public class ConsoleIHM implements IHM {
 
 	@Override
 	public IEnumDirection choixDirection(IEnumDirection enumDir) {
-		System.out.println("Dans quelle direction voulez vous deplacez la piece ?");
+		System.out
+				.println("Dans quelle direction voulez vous deplacez la piece ?");
 		for (int i = 0; i < enumDir.enumeration().length; i++)
-			System.out.println(enumDir.enumeration()[i].getRepresentation());
-		
-		String dir = sc.next();		
+			System.out.println(enumDir.enumeration()[i].getRepresentation()
+					+ " => " + enumDir.enumeration()[i].toString());
+
+		String dir = sc.next();
 		return enumDir.getDirection(dir);
+	}
+
+	public int choixNbCases() {
+		System.out.println("De combien de cases voulez vous bouger la pièce ?");
+		return Integer.parseInt(sc.next());
 	}
 
 }

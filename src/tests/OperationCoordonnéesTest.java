@@ -12,8 +12,8 @@ public class OperationCoordonnéesTest {
 	@Test
 	public void test() {
 		/*calculNouvellesCoordonnée*/
-		System.out.println(OperationCoordonnées.calculNouvellesCoordonnée("A1", Direction.bas,1));
-		assertEquals(OperationCoordonnées.calculNouvellesCoordonnée("A1", Direction.bas,1), "A2"); 
+		System.out.println(OperationCoordonnées.calculNouvellesCoordonnée("A1", Direction.Sud,1));
+		assertEquals(OperationCoordonnées.calculNouvellesCoordonnée("A1", Direction.Sud,1), "A2"); 
 		
 		
 		
