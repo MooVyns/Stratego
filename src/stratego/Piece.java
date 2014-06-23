@@ -1,14 +1,15 @@
 package stratego;
 
-
 public class Piece {
 	private TypePiece typePiece;
 	private Camp camp;
 	private Case c;
-	
+	private boolean estVisible;
+
 	public Piece(TypePiece typePiece, Camp camp) {
 		this.typePiece = typePiece;
 		this.camp = camp;
+		this.estVisible = true;
 	}
 
 	public TypePiece getTypePiece() {
@@ -22,8 +23,8 @@ public class Piece {
 	public String getCoordonnees() {
 		return c.getCoordonnees();
 	}
-	
-	public int getDeplacementMax(){
+
+	public int getDeplacementMax() {
 		return this.typePiece.getDeplacementMax();
 	}
 
@@ -36,12 +37,27 @@ public class Piece {
 		this.c = c;
 	}
 
-	public void supprimer(){
+	public void supprimer() {
 		setCase(null);
 	}
 
-	public String toString(){
-		return this.typePiece.representation();
+	public boolean getEstVisible() {
+		return this.estVisible;
+	}
+
+	public void cacher() {
+		this.estVisible = false;
+	}
+
+	public void rendreVisible() {
+		this.estVisible = true;
+	}
+
+	public String toString() {
+		if (this.estVisible == true)
+			return this.typePiece.representation();
+		else
+			return "#";
 	}
 
 	public boolean surPlateau() {

@@ -35,6 +35,8 @@ public class Joueur extends AbstractJoueur {
 			// this.getReserve().remettrePiece(typePiece);
 		}
 	}
+	
+	
 
 	@Override
 	public void jouer(Direction direction, int nbrCases, String coord) {

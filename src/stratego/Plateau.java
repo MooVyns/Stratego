@@ -132,19 +132,10 @@ public class Plateau {
 						// la case est elle déja occupée ?
 						if (plateau[newCoordInt[0]][newCoordInt[1]]
 								.estOccupée()) {
-							
-							
-							
-							
+
 							// affrontement();
 						} else {
-							
-							
-							
-							
-							
-							
-							
+
 							// deplacer la piece
 						}
 					} else
@@ -247,7 +238,7 @@ public class Plateau {
 		dessinCase = " \\___/ ";
 
 		for (int i = 1; i < LIGNES; i++) {
-			if(i ==  LIGNES-1)
+			if (i == LIGNES - 1)
 				m3 = "  ";
 			else
 				m3 = "/ ";
@@ -258,8 +249,8 @@ public class Plateau {
 
 					if (j == COLONNES - 1 && i == LIGNES - 1)
 						dessinCase = " ";
-					
-					if (j == COLONNES - 1 && i == 0){
+
+					if (j == COLONNES - 1 && i == 0) {
 						m3 = "  ";
 					}
 
@@ -308,4 +299,25 @@ public class Plateau {
 		}
 		return etat;
 	}
+
+	public void cacherPiece(Camp camp){
+		for(int i = 0; i < LIGNES; i++){
+			for(int j = 0; j < COLONNES; j++)
+			if(plateau[j][i].getPiece().getCamp() == camp){
+				plateau[j][i].getPiece().cacher();
+			}
+		}
+	}
+	
+	
+	public void rendreVisiblePieces(Camp camp){
+		for(int i = 0; i < LIGNES; i++){
+			for(int j = 0; j < COLONNES; j++)
+			if(plateau[j][i].getPiece().getCamp() == camp){
+				plateau[j][i].getPiece().rendreVisible();
+			}
+		}
+	}
+	
+	
 }
