@@ -1,13 +1,14 @@
 package joueur;
 
+
+import plateau.Plateau;
 import exceptions.CoordonneeInconnuException;
 import exceptions.PieceNonDisponibleException;
 import stratego.AbstractJoueur;
 import stratego.Camp;
-import stratego.Direction;
+import stratego.IEnumDirection;
 import stratego.OperationCoordonnées;
 import stratego.Piece;
-import stratego.Plateau;
 import stratego.TypePiece;
 
 public class Joueur extends AbstractJoueur {
@@ -30,16 +31,17 @@ public class Joueur extends AbstractJoueur {
 
 	@Override
 	public void retirerPiece(String coord) {
-		if (getCamp().equals(coord)) {
+		//Bien retirer une piece qui nous appartient
+		if (getCamp() == plateau.getCase(coord).getCamp()) {
 			plateau.retirerPiece(coord);
-			// this.getReserve().remettrePiece(typePiece);
+			// remettre dans la reserve
 		}
 	}
 	
 	
 
 	@Override
-	public void jouer(Direction direction, int nbrCases, String coord) {
+	public void jouer(IEnumDirection direction, int nbrCases, String coord) {
 		try {
 			if (OperationCoordonnées.verfiCoordonnees(coord, plateau)) {
 				plateau.jouer(direction, nbrCases, coord);

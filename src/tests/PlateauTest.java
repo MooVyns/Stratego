@@ -4,9 +4,9 @@ package tests;
 
 import org.junit.Test;
 
+import plateau.Plateau;
 import stratego.Camp;
 import stratego.Piece;
-import stratego.Plateau;
 import stratego.TypePiece;
 
 public class PlateauTest {

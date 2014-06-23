@@ -22,7 +22,7 @@ public class Reserve {
 		piecesReserve[TypePiece.Bombe.getValeur()] = 6;
 		piecesReserve[TypePiece.Drapeau.getValeur()] = 1;*/
 		
-		piecesReserve[TypePiece.Maréchal.getValeur()] = 0;
+		piecesReserve[TypePiece.Maréchal.getValeur()] = 1;
 		piecesReserve[TypePiece.Général.getValeur()] = 0;
 		piecesReserve[TypePiece.Colonel.getValeur()] = 0;
 		piecesReserve[TypePiece.Major.getValeur()] = 0;
@@ -32,8 +32,8 @@ public class Reserve {
 		piecesReserve[TypePiece.Démineur.getValeur()] = 0;
 		piecesReserve[TypePiece.Eclaireur.getValeur()] = 0;
 		piecesReserve[TypePiece.Espion.getValeur()] = 0;
-		piecesReserve[TypePiece.Bombe.getValeur()] = 1;
-		piecesReserve[TypePiece.Drapeau.getValeur()] = 1;
+		piecesReserve[TypePiece.Bombe.getValeur()] = 0;
+		piecesReserve[TypePiece.Drapeau.getValeur()] = 0;
 	}
 
 	public void retirerPiece(TypePiece typePiece) {

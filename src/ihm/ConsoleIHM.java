@@ -2,9 +2,10 @@ package ihm;
 
 import java.util.Scanner;
 
+import plateau.Plateau;
 import stratego.AbstractJoueur;
+import stratego.IEnumDirection;
 import stratego.IHM;
-import stratego.Plateau;
 import stratego.TypePiece;
 
 public class ConsoleIHM implements IHM {
@@ -16,7 +17,7 @@ public class ConsoleIHM implements IHM {
 
 	@Override
 	public void afficherPlateau(Plateau plateau) {
-		System.out.println(plateau.testdessin());
+		System.out.println(plateau.toString());
 	}
 
 	@Override
@@ -40,34 +41,37 @@ public class ConsoleIHM implements IHM {
 					+ (j.getReserve().getNombrePieceDisponible(TypePiece
 							.values()[i])) + " pièce(s) disponible(s)");
 		String choix = sc.next().toUpperCase();
-		/*while () {
-			System.out
-					.println("La pièce non identifiée. Tapez un nombre entre 0 et 12.");
-
-		}*/
+		/*
+		 * while () { System.out
+		 * .println("La pièce non identifiée. Tapez un nombre entre 0 et 12.");
+		 * 
+		 * }
+		 */
 		return TypePiece.getTypePiece(choix);
 	}
 
 	public String choixCoordonnees() {
-		System.out.println("A quelle endroit ?");
+		System.out.println("Entrez les coordonnées");
 		return sc.next().toUpperCase();
 	}
 
 	public void afficherString(String str) {
 		System.out.println(str);
 	}
-	
-	public String  retirerPieces (String coord, String coordp) {
+
+	public String retirerPiece() {
 		System.out.println("Quelle pièce voulez vous retirer ?");
-		return coordp= this.choixCoordonnees();
-		
-		
-		
+		return this.choixCoordonnees();
 	}
 
 	@Override
-	public void retirerPiece(String coord) {
-		// TODO Auto-generated method stub
+	public IEnumDirection choixDirection(IEnumDirection enumDir) {
+		System.out.println("Dans quelle direction voulez vous deplacez la piece ?");
+		for (int i = 0; i < enumDir.enumeration().length; i++)
+			System.out.println(enumDir.enumeration()[i].getRepresentation());
 		
+		String dir = sc.next();		
+		return enumDir.getDirection(dir);
 	}
+
 }

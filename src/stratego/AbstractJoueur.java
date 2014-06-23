@@ -1,5 +1,9 @@
 package stratego;
 
+import plateau.Plateau;
+
+
+
 public abstract class AbstractJoueur {
 	protected Plateau plateau;
 	private String nom;
@@ -29,5 +33,5 @@ public abstract class AbstractJoueur {
 
 	public abstract void retirerPiece(String coord);
 
-	public abstract void jouer(Direction dir, int nbrCases, String coord);
+	public abstract void jouer(IEnumDirection dir, int nbrCases, String coord);
 }

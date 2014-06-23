@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import stratego.Direction;
+import plateau.Direction;
 import stratego.OperationCoordonnées;
 
 public class OperationCoordonnéesTest {

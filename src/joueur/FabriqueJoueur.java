@@ -1,9 +1,9 @@
 package joueur;
 
+import plateau.Plateau;
 import stratego.AbstractJoueur;
 import stratego.Camp;
 import stratego.IFabriqueJoueur;
-import stratego.Plateau;
 
 public class FabriqueJoueur implements IFabriqueJoueur{
 	@Override

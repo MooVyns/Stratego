@@ -1,5 +1,9 @@
 package stratego;
 
+import plateau.Plateau;
+
+
+
 public class OperationCoordonnées {
 	// ok
 	public static String coordToString(int i, int j) {
@@ -28,7 +32,7 @@ public class OperationCoordonnées {
 		return false;
 	}
 
-	public static String calculNouvellesCoordonnée(String coord, Direction direction,
+	public static String calculNouvellesCoordonnée(String coord, IEnumDirection direction,
 			int nbrCases) {
 		int coordInt[] = stringToCoord(coord);
 		coordInt[0] += (direction.getColonne() * nbrCases);

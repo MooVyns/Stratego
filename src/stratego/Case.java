@@ -19,6 +19,8 @@ public class Case {
 		this.piece.setCase(this);
 	}
 	
+	
+	
 	public Piece getPiece() {
 		return piece;
 	}
