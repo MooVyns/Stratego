@@ -132,8 +132,19 @@ public class Plateau {
 						// la case est elle déja occupée ?
 						if (plateau[newCoordInt[0]][newCoordInt[1]]
 								.estOccupée()) {
+							
+							
+							
+							
 							// affrontement();
 						} else {
+							
+							
+							
+							
+							
+							
+							
 							// deplacer la piece
 						}
 					} else
@@ -217,9 +228,7 @@ public class Plateau {
 					m2 += plateau[i][0].getPiece().toString() + dessinCase;
 			}
 		}
-
 		dessinCase = " \\___/ ";
-
 		String m3 = "/ ";
 		for (int j = 0; j < COLONNES; j++) {
 			if (j % 2 == 0) {
