@@ -131,7 +131,9 @@ public class Plateau {
 					if (OperationCoordonnées.verfiCoordonnees(newCoord, this)) {
 						// la case est-elle déja occupée ?
 						if (plateau[newCoordInt[0]][newCoordInt[1]]
-								.estOccupée()) {
+								.estOccupée()) {						
+							
+							
 							// affrontement();
 							
 							
@@ -148,6 +150,7 @@ public class Plateau {
 							// effacer les anciennes coordonnées
 							plateau[coordInt[0]][coordInt[1]].setPiece(null);
 							
+
 						}
 					} else
 						throw new CoordonneeInconnuException();
@@ -213,7 +216,6 @@ public class Plateau {
 	}
 
 	public String testdessin() {
-
 		String str = "";
 		String m1 = "     ___     ___     ___      \n";// haut du plateau
 
@@ -222,28 +224,27 @@ public class Plateau {
 
 		for (int i = 0; i < COLONNES; i++) {
 			if (i % 2 == 1) {
-				if(i == COLONNES - 2){
-					dessinCase = " \\___";
+				if (i == COLONNES - 2) {
+					dessinCase = " \\___ ";
 				}
 				if (!plateau[i][0].estOccupée())
-					m2 += plateau[i][0].toString() + dessinCase ;
+					m2 += plateau[i][0].toString() + dessinCase;
 				else
-					m2 += plateau[i][0].getPiece().toString() + dessinCase ;
+					m2 += plateau[i][0].getPiece().toString() + dessinCase;
 			}
 		}
-		
 		dessinCase = " \\___/ ";
-
 		String m3 = "/ ";
 		for (int j = 0; j < COLONNES; j++) {
-			if (j % 2 == 0)
-				/*if(j == COLONNES -1){
+			if (j % 2 == 0) {
+				if (j == COLONNES - 1) {
 					dessinCase = " \\";
-				}*/
+				}
 				if (!plateau[j][0].estOccupée())
-					m3 += plateau[j][0].toString() + dessinCase ;
+					m3 += plateau[j][0].toString() + dessinCase;
 				else
-					m3 += plateau[j][0].getPiece().toString() + dessinCase ;
+					m3 += plateau[j][0].getPiece().toString() + dessinCase;
+			}
 		}
 		m3 += "\n";
 		m2 += "\n";
@@ -251,27 +252,42 @@ public class Plateau {
 		dessinCase = " \\___/ ";
 
 		for (int i = 1; i < LIGNES; i++) {
-			m3 = "/ ";
+			if(i ==  LIGNES-1)
+				m3 = "  ";
+			else
+				m3 = "/ ";
 			for (int j = 0; j < COLONNES; j++) {
-				if (j % 2 == 0)
+				if (j % 2 == 0) {
+					if (j == COLONNES - 1)
+						dessinCase = " \\";
+
+					if (j == COLONNES - 1 && i == LIGNES - 1)
+						dessinCase = " ";
+					
+					if (j == COLONNES - 1 && i == 0){
+						m3 = "  ";
+					}
+
 					if (!plateau[j][i].estOccupée())
-						m3 += plateau[j][i].toString() + dessinCase ;
+						m3 += plateau[j][i].toString() + dessinCase;
 					else
-						m3 += plateau[j][i].getPiece().toString() + dessinCase ;
+						m3 += plateau[j][i].getPiece().toString() + dessinCase;
+				}
+
 			}
-			m3 += "\n";
+			m3 += " \n";
 			dessinCase = " \\___/ ";
 
 			String m4 = "\\___/ ";
 			for (int j = 0; j < COLONNES; j++) {
 				if (j % 2 == 1)
 					if (!plateau[j][i].estOccupée())
-						m4 += plateau[j][i].toString() + dessinCase ;
+						m4 += plateau[j][i].toString() + dessinCase;
 					else
-						m4 += plateau[j][i].getPiece().toString() + dessinCase ;
+						m4 += plateau[j][i].getPiece().toString() + dessinCase;
 			}
 
-			m4 += "  \n";
+			m4 += " \n";
 			dessinCase = " \\___/ ";
 			str += m4 + m3;
 		}
