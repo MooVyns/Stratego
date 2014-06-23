@@ -32,7 +32,7 @@ public class Reserve {
 		piecesReserve[TypePiece.Démineur.getValeur()] = 0;
 		piecesReserve[TypePiece.Eclaireur.getValeur()] = 0;
 		piecesReserve[TypePiece.Espion.getValeur()] = 0;
-		piecesReserve[TypePiece.Bombe.getValeur()] = 0;
+		piecesReserve[TypePiece.Bombe.getValeur()] = 1;
 		piecesReserve[TypePiece.Drapeau.getValeur()] = 1;
 	}
 

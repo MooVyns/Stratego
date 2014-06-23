@@ -162,6 +162,11 @@ public class Plateau {
 
 	}
 
+	
+	/*
+		Fin de partie, lors de l'affrontement verifier si un drapeau a été eliminé
+	
+	*/
 	public void affrontement(Piece pieceDeplacer, Piece pieceEnAttente) {
 		String coordPieceEnAttente = pieceEnAttente.getCoordonnees();
 		String coordOriginePieceDeplacer = pieceDeplacer.getCoordonnees();
