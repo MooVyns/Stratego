@@ -300,24 +300,26 @@ public class Plateau {
 		return etat;
 	}
 
-	public void cacherPiece(Camp camp){
-		for(int i = 0; i < LIGNES; i++){
-			for(int j = 0; j < COLONNES; j++)
-			if(plateau[j][i].getPiece().getCamp() == camp){
-				plateau[j][i].getPiece().cacher();
-			}
+	public void cacherPiece(Camp camp) {
+		for (int i = 0; i < LIGNES; i++) {
+			for (int j = 0; j < COLONNES; j++)
+				if (plateau[j][i].estOccupée()) {
+					if (plateau[j][i].getPiece().getCamp() == camp) {
+						plateau[j][i].getPiece().cacher();
+					}
+				}
 		}
 	}
-	
-	
-	public void rendreVisiblePieces(Camp camp){
-		for(int i = 0; i < LIGNES; i++){
-			for(int j = 0; j < COLONNES; j++)
-			if(plateau[j][i].getPiece().getCamp() == camp){
-				plateau[j][i].getPiece().rendreVisible();
-			}
+
+	public void rendreVisiblePieces(Camp camp) {
+		for (int i = 0; i < LIGNES; i++) {
+			for (int j = 0; j < COLONNES; j++)
+				if (plateau[j][i].estOccupée()) {
+					if (plateau[j][i].getPiece().getCamp() == camp) {
+						plateau[j][i].getPiece().rendreVisible();
+					}
+				}
 		}
 	}
-	
-	
+
 }

@@ -39,6 +39,9 @@ public enum TypePiece {
 		}
 		return null ;
 	}
+	
+	
+	
 
 	public int getDeplacementMax() {
 		return this.deplacementMax;

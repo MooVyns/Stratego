@@ -38,19 +38,19 @@ public class ConsoleIHM implements IHM {
 					+ TypePiece.values()[i].toString()
 					+ "  "
 					+ (j.getReserve().getNombrePieceDisponible(TypePiece
-							.values()[i])) + " pièce(s) disponible(s)"); 
-		String choix = sc.next();
-		/*if (Integer.parseInt(choix) > 12 || Integer.parseInt(choix) < 0) {
+							.values()[i])) + " pièce(s) disponible(s)");
+		String choix = sc.next().toUpperCase();
+		/*while () {
 			System.out
 					.println("La pièce non identifiée. Tapez un nombre entre 0 et 12.");
-		} else*/
-			return TypePiece.getTypePiece(choix);
-		
+
+		}*/
+		return TypePiece.getTypePiece(choix);
 	}
 
 	public String choixCoordonnees() {
 		System.out.println("A quelle endroit ?");
-		return sc.next();
+		return sc.next().toUpperCase();
 	}
 
 	public void afficherString(String str) {

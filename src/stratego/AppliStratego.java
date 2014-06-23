@@ -27,6 +27,7 @@ public class AppliStratego {
 
 	public void PlacementDesPieces() {
 		for (int i = 0; i < joueurs.length; i++) {
+			this.plateau.cacherPiece(joueurs[(i+1)% 2].getCamp());
 			ihm.afficherString(joueurs[i].getNom()
 					+ ", à vous de placer vos pions");
 			while (!joueurs[i].getReserve().estVide()) {
