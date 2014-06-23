@@ -1,5 +1,7 @@
 package stratego;
 
+import java.util.Scanner;
+
 import ihm.ConsoleIHM;
 import joueur.FabriqueJoueur;
 import joueur.Joueur;
@@ -36,6 +38,19 @@ public class AppliStratego {
 				ihm.afficherPlateau(plateau);
 			}
 		}
+		System.out.println("Que Souhaitez-vous Faire ?");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Je souhaite retirer une piece :");
+		System.out.println("Je souhaite Ajouter une piece :");
+		String rep = sc.next();
+		for (int i = 0; i < joueurs.length; i++) 
+		{
+		if (rep == "oui") {
+ 			ihm.choixCoordonnees();
+         	joueurs[i].retirerPiece(ihm.choixCoordonnees());
+			}
+
+		}
 	}
 	
 	public void deroulementPartie(){
@@ -59,4 +74,5 @@ public class AppliStratego {
 		app.PlacementDesPieces();
 		
 	}
+	
 }

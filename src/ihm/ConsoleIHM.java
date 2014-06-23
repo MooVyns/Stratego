@@ -56,4 +56,18 @@ public class ConsoleIHM implements IHM {
 	public void afficherString(String str) {
 		System.out.println(str);
 	}
+	
+	public String  retirerPieces (String coord, String coordp) {
+		System.out.println("Quelle pièce voulez vous retirer ?");
+		return coordp= this.choixCoordonnees();
+		
+		
+		
+	}
+
+	@Override
+	public void retirerPiece(String coord) {
+		// TODO Auto-generated method stub
+		
+	}
 }
