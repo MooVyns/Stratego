@@ -24,6 +24,7 @@ public class Sauvegarde {
 
 			PrintWriter p = new PrintWriter(new BufferedWriter(new FileWriter(FICHIERSAUVEGARDE)));
 			p.write(s);
+			p.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

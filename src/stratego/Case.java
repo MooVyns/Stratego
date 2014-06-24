@@ -5,21 +5,27 @@ public class Case {
 	private String coord;
 	private Piece piece;
 	
-	public Case(Camp camp, String coord){
-		this.camp = camp;
+	public Case(String coord){
 		this.coord = coord;
+	}
+	
+	public Case(String coord, Camp camp){
+		this(coord);
+		this.camp = camp;
 	}
 	
 	public Camp getCamp(){
 		return this.camp;
 	}
 	
+	public void setCamp(Camp camp){
+		this.camp = camp;
+	}
+	
 	public void setPiece(Piece piece){
 		this.piece = piece;
 		this.piece.setCase(this);
-	}
-	
-	
+	}	
 	
 	public Piece getPiece() {
 		return piece;
@@ -32,7 +38,6 @@ public class Case {
 	public String getCoordonnees() {
 		return this.coord;
 	}	
-	
 	
 	public void retirerPiece(){
 		this.piece = null;

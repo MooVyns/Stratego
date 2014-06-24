@@ -14,7 +14,7 @@ public class PieceEtCaseTest {
 	@Test
 	public void test() {
 		Piece piece = new Piece(TypePiece.Drapeau,Camp.Nord);
-		Case c = new Case(Camp.Nord,"A2");
+		Case c = new Case("A2",Camp.Nord);
 		c.setPiece(piece);
 		
 		//TEST COORDONNEES

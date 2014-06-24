@@ -1,10 +1,11 @@
 package joueur;
 
 
-import plateau.Plateau;
+
 import exceptions.CoordonneeInconnuException;
 import exceptions.PieceNonDisponibleException;
 import stratego.AbstractJoueur;
+import stratego.AbstractPlateau;
 import stratego.Camp;
 import stratego.IEnumDirection;
 import stratego.OperationCoordonnées;
@@ -12,7 +13,7 @@ import stratego.Piece;
 import stratego.TypePiece;
 
 public class Joueur extends AbstractJoueur {
-	public Joueur(String nom, Camp camp, Plateau plateau) {
+	public Joueur(String nom, Camp camp, AbstractPlateau plateau) {
 		super(nom, camp, plateau);
 	}
 
@@ -36,19 +37,18 @@ public class Joueur extends AbstractJoueur {
 			plateau.retirerPiece(coord);
 			// remettre dans la reserve
 		}
-	}
-	
+	}	
 	
 
 	@Override
-	public void jouer( String coord,IEnumDirection direction, int nbrCases) {
+	public boolean jouer(String coord,IEnumDirection direction, int nbrCases) {
 		try {
 			if (OperationCoordonnées.verfiCoordonnees(coord, plateau)) {
-				plateau.jouer(direction, nbrCases, coord);
-
+				return plateau.jouer(direction, nbrCases, coord);
 			} else
 				throw new CoordonneeInconnuException();
 		} catch (CoordonneeInconnuException e) {
+			return false;
 		}
 	}
 }

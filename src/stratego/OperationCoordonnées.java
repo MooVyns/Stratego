@@ -23,7 +23,7 @@ public class OperationCoordonnées {
 		return res;
 	}
 
-	public static boolean verfiCoordonnees(String coord, Plateau plateau) {
+	public static boolean verfiCoordonnees(String coord, AbstractPlateau plateau) {
 		for (int i = 0; i < plateau.getNbColonnes(); ++i) {
 			for (int j = 0; j < plateau.getNbLignes(); ++j) {
 				if (coord.equals(plateau.getCase(coord).getCoordonnees())) {

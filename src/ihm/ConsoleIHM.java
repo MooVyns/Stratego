@@ -81,4 +81,13 @@ public class ConsoleIHM implements IHM {
 		return Integer.parseInt(sc.next());
 	}
 
+	@Override
+	public String choixActionPlacementPiece() {
+		System.out.println("Que Souhaitez-vous Faire ?");
+		System.out.println("R => Je souhaite retirer une piece :");
+		System.out.println("A => Je souhaite Ajouter une piece :");
+		String rep = sc.next();
+		return rep;
+	}
+
 }

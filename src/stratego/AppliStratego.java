@@ -18,7 +18,7 @@ public class AppliStratego {
 	public AppliStratego(IFabriqueJoueur iFabrique, IHM ihm,
 			IEnumDirection enumDir) {
 		this.joueurs = new Joueur[2];
-		this.plateau = new Plateau();
+		this.plateau = new Plateau(7,9);
 		this.iFabrique = iFabrique;
 		this.ihm = ihm;
 		this.enumDir = enumDir;
@@ -38,13 +38,7 @@ public class AppliStratego {
 			ihm.afficherString(joueurs[i].getNom()
 					+ ", à vous de placer vos pions");
 			while (!joueurs[i].getReserve().estVide()) {
-
-				System.out.println("Que Souhaitez-vous Faire ?");
-				Scanner sc = new Scanner(System.in);
-				System.out.println(" R => Je souhaite retirer une piece :");
-				System.out.println(" A => Je souhaite Ajouter une piece :");
-				String rep = sc.next();
-				if (rep.equals("R")) {
+				if (ihm.choixActionPlacementPiece().equals("R")) {
 					joueurs[i].retirerPiece(ihm.retirerPiece());
 					ihm.afficherPlateau(plateau);
 				} else {
@@ -63,12 +57,11 @@ public class AppliStratego {
 			this.plateau.rendreVisiblePieces(joueurs[i].getCamp());
 			this.plateau.cacherPieces(joueurs[(i + 1) % 2].getCamp());
 			ihm.afficherPlateau(plateau);
-			while (true) {//tant qu'il y a une erreur
+			do{//tant qu'il y a une erreur
 				System.out.println(joueurs[i].getNom()
-						+ "Quelle piece voulez vous jouer ?");
-				joueurs[i].jouer(ihm.choixCoordonnees(),
-						ihm.choixDirection(enumDir), ihm.choixNbCases());
-			}
+						+ "Quelle piece voulez vous jouer ?");				 
+			}while(!joueurs[i].jouer(ihm.choixCoordonnees(),
+					ihm.choixDirection(enumDir), ihm.choixNbCases()));
 		}
 
 	}

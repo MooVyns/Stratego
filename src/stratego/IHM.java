@@ -12,6 +12,7 @@ public interface IHM {
 	public TypePiece choixPiece(AbstractJoueur j);
 	public String retirerPiece ();
 	public int choixNbCases();
+	public String choixActionPlacementPiece();
 	//impossible d'avoir une methode static avec une interface
 	public IEnumDirection choixDirection(IEnumDirection enumDir);
 }

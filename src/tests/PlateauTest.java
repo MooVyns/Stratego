@@ -13,7 +13,7 @@ public class PlateauTest {
 
 	@Test
 	public void test() {
-		Plateau plateau = new Plateau();
+		Plateau plateau = new Plateau(7,9);
 		
 		//TEST CAMP
 		System.out.println("TEST CAMP");
