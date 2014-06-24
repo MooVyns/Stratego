@@ -1,6 +1,6 @@
 package stratego;
 
-import plateau.Plateau;
+
 
 
 

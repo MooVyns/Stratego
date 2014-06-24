@@ -11,4 +11,5 @@ public abstract class AbstractPlateau {
 	public int getNbColonnes() {
 		return COLONNES;
 	}
+	
 }
