@@ -86,10 +86,8 @@ public class AppliStratego {
 				new ConsoleIHM(), Direction.Sud);
 		System.out.println(app.plateau.toString());
 		app.initJoueur();
-		// app.PlacementDesPieces();
-
+		app.PlacementDesPieces();
 		app.deroulementPartie();
-
 	}
 
 }
