@@ -1,6 +1,5 @@
 package stratego;
 
-import java.util.Scanner;
 
 import plateau.Direction;
 import plateau.Plateau;

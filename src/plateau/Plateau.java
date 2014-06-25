@@ -2,7 +2,6 @@ package plateau;
 
 import stratego.AbstractPlateau;
 import stratego.Camp;
-import stratego.Case;
 import stratego.IEnumDirection;
 import stratego.OperationCoordonnées;
 import stratego.Piece;
