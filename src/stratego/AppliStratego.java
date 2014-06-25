@@ -23,6 +23,7 @@ public class AppliStratego {
 	}
 
 	public void initJoueur() {
+		ihm.afficherPlateau(plateau);
 		String[] noms = ihm.saisieNomJoueur();
 		for (int i = 0; i < noms.length; i++) {
 			joueurs[i] = iFabrique.creerJoueur(noms[i], Camp.values()[i],
@@ -57,7 +58,7 @@ public class AppliStratego {
 				this.plateau.cacherPieces(joueurs[(i + 1) % 2].getCamp());
 				ihm.afficherPlateau(plateau);
 				do {// tant qu'il y a une erreur
-					System.out.println(joueurs[i].getNom()
+					ihm.afficherString(joueurs[i].getNom()
 							+ ", Quelle piece voulez vous jouer ?");
 				} while (!joueurs[i].jouer(ihm.choixCoordonnees(),
 						ihm.choixDirection(enumDir), ihm.choixNbCases()));
@@ -81,7 +82,6 @@ public class AppliStratego {
 	public static void main(String[] args) {
 		AppliStratego app = new AppliStratego(new FabriqueJoueur(),
 				new ConsoleIHM(), Direction.Sud);
-		System.out.println(app.plateau.toString());
 		app.initJoueur();
 		app.PlacementDesPieces();
 		app.deroulementPartie();
