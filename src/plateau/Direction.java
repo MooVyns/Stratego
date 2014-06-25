@@ -2,6 +2,7 @@ package plateau;
 
 import stratego.IEnumDirection;
 
+
 public enum Direction implements IEnumDirection {
 	Nord(0, -1, "N", "Nord"), Sud(0, 1, "S", "Sud"), NordOuest(-1, 0, "NO",
 			"NordOuest"), NordEst(1, 0, "NE", "NordEst"), SudOuest(-1, 1,
@@ -46,5 +47,14 @@ public enum Direction implements IEnumDirection {
 				return Direction.values()[i];
 		}
 		return null;
+	}
+	
+	
+	public boolean exist(String str){
+		for (int i = 0; i < Direction.values().length; i++) {
+			if (str.equals(Direction.values()[i].getRepresentation()))
+				return true;
+		}
+		return false;
 	}
 }

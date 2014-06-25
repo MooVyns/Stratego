@@ -10,4 +10,6 @@ public interface IEnumDirection {
 	public String getRepresentation();
 
 	public IEnumDirection getDirection(String dir);
+
+	public boolean exist(String str);
 }

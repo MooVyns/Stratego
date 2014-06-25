@@ -20,7 +20,7 @@ public enum TypePiece {
 		this.deplacementMax = deplacementMax;
 	}
 
-	public String representation() {
+	public String getRepresentation() {
 		return this.initiale;
 	}
 
@@ -34,11 +34,11 @@ public enum TypePiece {
 
 	public static TypePiece getTypePiece(String c) {
 		for (int i = 0; i < TypePiece.values().length; i++) {
-			if (TypePiece.values()[i].representation().equals(c))
-				return TypePiece.values()[i];			
+			if (TypePiece.values()[i].getRepresentation().equals(c))
+				return TypePiece.values()[i];
 		}
-		return null ;
-	}	
+		return null;
+	}
 
 	public int getDeplacementMax() {
 		return this.deplacementMax;
@@ -48,4 +48,11 @@ public enum TypePiece {
 		return this.deplacementMax != 0;
 	}
 
+	public static boolean exist(String str) {
+		for (int i = 0; i < TypePiece.values().length; i++) {
+			if (str.equals(TypePiece.values()[i].getRepresentation()))
+				return true;
+		}
+		return false;
+	}
 }

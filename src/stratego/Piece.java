@@ -56,9 +56,9 @@ public class Piece {
 	public String toString() {
 		if (this.estVisible == true)
 			if(camp == Camp.values()[0])
-				return this.typePiece.representation();
+				return this.typePiece.getRepresentation();
 			else
-				return this.typePiece.representation().toLowerCase();
+				return this.typePiece.getRepresentation().toLowerCase();
 		else
 			return "#";
 	}

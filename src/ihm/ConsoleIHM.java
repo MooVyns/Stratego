@@ -30,26 +30,29 @@ public class ConsoleIHM implements IHM {
 		return noms;
 	}
 
+	// ok
 	@Override
 	public TypePiece choixPiece(AbstractJoueur j) {
 		System.out.println("Quelle pièce voulez vous placer ?");
 		for (int i = 0; i < TypePiece.values().length; i++)
-			System.out.println(TypePiece.values()[i].representation()
+			System.out.println(TypePiece.values()[i].getRepresentation()
 					+ "  => "
 					+ TypePiece.values()[i].toString()
 					+ "  "
 					+ (j.getReserve().getNombrePieceDisponible(TypePiece
 							.values()[i])) + " pièce(s) disponible(s)");
-		String choix = sc.next().toUpperCase();
-		/*
-		 * while () { System.out
-		 * .println("La pièce non identifiée. Tapez un nombre entre 0 et 12.");
-		 * 
-		 * }
-		 */
+		String choix;
+
+		do {
+			choix = sc.next().toUpperCase();
+			if (!TypePiece.exist(choix))
+				System.out.println("Cette piece n'existe pas ! Choisissez votre pièce");
+		} while (!TypePiece.exist(choix));
+
 		return TypePiece.getTypePiece(choix);
 	}
 
+	// faire verif
 	public String choixCoordonnees() {
 		System.out.println("Entrez les coordonnées");
 		return sc.next().toUpperCase();
@@ -64,6 +67,7 @@ public class ConsoleIHM implements IHM {
 		return this.choixCoordonnees();
 	}
 
+	// ok
 	@Override
 	public IEnumDirection choixDirection(IEnumDirection enumDir) {
 		System.out
@@ -71,16 +75,26 @@ public class ConsoleIHM implements IHM {
 		for (int i = 0; i < enumDir.enumeration().length; i++)
 			System.out.println(enumDir.enumeration()[i].getRepresentation()
 					+ " => " + enumDir.enumeration()[i].toString());
+		String dir;
 
-		String dir = sc.next().toUpperCase();
+		do {
+			dir = sc.next().toUpperCase();
+			if (!enumDir.exist(dir))
+				System.out
+						.println("Cette direction n'existe pas ! Entrez une nouvelle direction");
+		} while (!enumDir.exist(dir));
+
 		return enumDir.getDirection(dir);
 	}
 
+	// faire verif
 	public int choixNbCases() {
 		System.out.println("De combien de cases voulez vous bouger la pièce ?");
+
 		return Integer.parseInt(sc.next());
 	}
 
+	// faire verif
 	@Override
 	public String choixActionPlacementPiece() {
 		System.out.println("Que Souhaitez-vous Faire ?");
