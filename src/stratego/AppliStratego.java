@@ -1,6 +1,5 @@
 package stratego;
 
-
 import plateau.Direction;
 import plateau.Plateau;
 import ihm.ConsoleIHM;
@@ -17,7 +16,7 @@ public class AppliStratego {
 	public AppliStratego(IFabriqueJoueur iFabrique, IHM ihm,
 			IEnumDirection enumDir) {
 		this.joueurs = new Joueur[2];
-		this.plateau = new Plateau(7,9);
+		this.plateau = new Plateau(7, 9);
 		this.iFabrique = iFabrique;
 		this.ihm = ihm;
 		this.enumDir = enumDir;
@@ -52,17 +51,23 @@ public class AppliStratego {
 	}
 
 	public void deroulementPartie() {
-		for (int i = 0; i < joueurs.length; i++) {
-			this.plateau.rendreVisiblePieces(joueurs[i].getCamp());
-			this.plateau.cacherPieces(joueurs[(i + 1) % 2].getCamp());
-			ihm.afficherPlateau(plateau);
-			do{//tant qu'il y a une erreur
-				System.out.println(joueurs[i].getNom()
-						+ "Quelle piece voulez vous jouer ?");				 
-			}while(!joueurs[i].jouer(ihm.choixCoordonnees(),
-					ihm.choixDirection(enumDir), ihm.choixNbCases()));
-		}
+		while (true) {
+			for (int i = 0; i < joueurs.length; i++) {
+				this.plateau.rendreVisiblePieces(joueurs[i].getCamp());
+				this.plateau.cacherPieces(joueurs[(i + 1) % 2].getCamp());
+				ihm.afficherPlateau(plateau);
+				do {// tant qu'il y a une erreur
+					System.out.println(joueurs[i].getNom()
+							+ ", Quelle piece voulez vous jouer ?");
+				} while (!joueurs[i].jouer(ihm.choixCoordonnees(),
+						ihm.choixDirection(enumDir), ihm.choixNbCases()));
+			}
 
+		}
+	}
+	
+	public boolean partieFinie(){
+		return true;
 	}
 
 	public void sauvegarderPartie() {
