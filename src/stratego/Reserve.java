@@ -10,31 +10,19 @@ public class Reserve {
 
 	public void initReserve() {
 		/*24 Pieces*/
-		/*piecesReserve[TypePiece.Maréchal.getValeur()] = 1;
-		piecesReserve[TypePiece.Général.getValeur()] = 1;
-		piecesReserve[TypePiece.Colonel.getValeur()] = 2;
-		piecesReserve[TypePiece.Major.getValeur()] = 3;
-		piecesReserve[TypePiece.Capitaine.getValeur()] = 4;
-		piecesReserve[TypePiece.Lieutenant.getValeur()] = 4;
-		piecesReserve[TypePiece.Sergent.getValeur()] = 4;
-		piecesReserve[TypePiece.Démineur.getValeur()] = 5;
-		piecesReserve[TypePiece.Eclaireur.getValeur()] = 8;
-		piecesReserve[TypePiece.Espion.getValeur()] = 1;
-		piecesReserve[TypePiece.Bombe.getValeur()] = 4;
-		piecesReserve[TypePiece.Drapeau.getValeur()] = 1;*/
 		
-		piecesReserve[TypePiece.Maréchal.getValeur()] = 1;
-		piecesReserve[TypePiece.Général.getValeur()] = 0;
-		piecesReserve[TypePiece.Colonel.getValeur()] = 0;
-		piecesReserve[TypePiece.Major.getValeur()] = 0;
-		piecesReserve[TypePiece.Capitaine.getValeur()] = 0;
+		piecesReserve[TypePiece.Bombe.getValeur()] = 4;
+		piecesReserve[TypePiece.Maréchal.getValeur()] = 0;
+		piecesReserve[TypePiece.Général.getValeur()] = 1;
+		piecesReserve[TypePiece.Colonel.getValeur()] = 1;
+		piecesReserve[TypePiece.Major.getValeur()] = 2;
+		piecesReserve[TypePiece.Capitaine.getValeur()] = 2;
 		piecesReserve[TypePiece.Lieutenant.getValeur()] = 0;
-		piecesReserve[TypePiece.Sergent.getValeur()] = 0;
-		piecesReserve[TypePiece.Démineur.getValeur()] = 0;
-		piecesReserve[TypePiece.Eclaireur.getValeur()] = 0;
-		piecesReserve[TypePiece.Espion.getValeur()] = 0;
-		piecesReserve[TypePiece.Bombe.getValeur()] = 0;
-		piecesReserve[TypePiece.Drapeau.getValeur()] = 0;
+		piecesReserve[TypePiece.Sergent.getValeur()] = 4;
+		piecesReserve[TypePiece.Démineur.getValeur()] = 4;
+		piecesReserve[TypePiece.Eclaireur.getValeur()] = 4;
+		piecesReserve[TypePiece.Espion.getValeur()] = 1;		
+		piecesReserve[TypePiece.Drapeau.getValeur()] = 1;
 	}
 
 	public void retirerPiece(TypePiece typePiece) {
