@@ -94,8 +94,7 @@ public class Plateau extends AbstractPlateau {
 					if (OperationCoordonnées.verfiCoordonnees(newCoord, this)) {
 						// la case est-elle déja occupée ?
 						if (this.getCase(newCoord).estOccupée()) {
-							// affrontement();
-							System.out.println("affrontement");
+							affrontement(this.getPiece(coord),this.getPiece(newCoord));
 							return true;
 						} else {
 							// déplacer la piece
@@ -144,13 +143,15 @@ public class Plateau extends AbstractPlateau {
 			this.getCase(coordOriginePieceDeplacer).retirerPiece();
 			// la case ne pointe plus sur la piece
 		} else {
-			// Suppression des 2 pieces
-			// Egalité !!!
+			pieceEnAttente.supprimer();
+			pieceDeplacer.supprimer();
+			this.getCase(coordPieceEnAttente).retirerPiece();
+			this.getCase(coordOriginePieceDeplacer).retirerPiece();
 		}
 	}
 
 	public String toString() {
-		String str = "";
+		String str = "    A   B   C   D   E   F   G \n";
 		String m1 = "     ___     ___     ___      \n";// haut du plateau
 
 		String m2 = " ___/ ";
@@ -168,6 +169,7 @@ public class Plateau extends AbstractPlateau {
 							+ dessinCase;
 			}
 		}
+		
 		dessinCase = " \\___/ ";
 		String m3 = "/ ";
 		for (int j = 0; j < getNbColonnes(); j++) {
@@ -184,7 +186,7 @@ public class Plateau extends AbstractPlateau {
 		}
 		m3 += "\n";
 		m2 += "\n";
-		str += m1 + m2 + m3;
+		str += "  "+ m1+ "  " + m2 + "1 "+ m3;
 		dessinCase = " \\___/ ";
 
 		for (int i = 1; i < getNbLignes(); i++) {
@@ -227,7 +229,7 @@ public class Plateau extends AbstractPlateau {
 
 			m4 += " \n";
 			dessinCase = " \\___/ ";
-			str += m4 + m3;
+			str +="  "+ m4 + (i+1)+" "+ m3;
 		}
 
 		return str;
@@ -252,5 +254,4 @@ public class Plateau extends AbstractPlateau {
 		}
 		return etat;
 	}
-
 }

@@ -1,5 +1,6 @@
 package stratego;
 
+
 public class OperationCoordonnées {
 	// ok
 	public static String coordToString(int i, int j) {

@@ -4,7 +4,7 @@ public enum Camp {
 
 	Nord("Nord","^"), 
 	Sud("Sud", "~"),
-	Centre("Centre","-"),
+	Centre("Centre"," "),
 	Indisponible("Indisponible"," ");
 
 	private String nom;
