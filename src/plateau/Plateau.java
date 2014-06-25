@@ -100,7 +100,6 @@ public class Plateau extends AbstractPlateau {
 						// la case est-elle déja occupée ?
 						if (this.getCase(newCoord).estOccupée()) {
 							affrontement(this.getPiece(coord),this.getPiece(newCoord));
-							System.out.println("affrontement");
 							return true;
 						} else {
 							// déplacer la piece

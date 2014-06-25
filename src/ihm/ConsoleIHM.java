@@ -72,7 +72,7 @@ public class ConsoleIHM implements IHM {
 			System.out.println(enumDir.enumeration()[i].getRepresentation()
 					+ " => " + enumDir.enumeration()[i].toString());
 
-		String dir = sc.next();
+		String dir = sc.next().toUpperCase();
 		return enumDir.getDirection(dir);
 	}
 
@@ -86,7 +86,7 @@ public class ConsoleIHM implements IHM {
 		System.out.println("Que Souhaitez-vous Faire ?");
 		System.out.println("R => Je souhaite retirer une piece :");
 		System.out.println("A => Je souhaite Ajouter une piece :");
-		String rep = sc.next();
+		String rep = sc.next().toUpperCase();
 		return rep;
 	}
 
