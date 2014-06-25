@@ -9,8 +9,6 @@ public class Reserve {
 	}
 
 	public void initReserve() {
-		/*24 Pieces*/
-		
 		piecesReserve[TypePiece.Bombe.getValeur()] = 4;
 		piecesReserve[TypePiece.Maréchal.getValeur()] = 0;
 		piecesReserve[TypePiece.Général.getValeur()] = 1;
@@ -23,6 +21,7 @@ public class Reserve {
 		piecesReserve[TypePiece.Eclaireur.getValeur()] = 4;
 		piecesReserve[TypePiece.Espion.getValeur()] = 1;		
 		piecesReserve[TypePiece.Drapeau.getValeur()] = 1;
+	
 	}
 
 	public void retirerPiece(TypePiece typePiece) {
