@@ -1,6 +1,5 @@
 package stratego;
 
-import java.util.Scanner;
 
 import plateau.Direction;
 import plateau.Plateau;
@@ -10,7 +9,7 @@ import joueur.Joueur;
 
 public class AppliStratego {
 	private AbstractJoueur[] joueurs;
-	private Plateau plateau;
+	private AbstractPlateau plateau;
 	private IFabriqueJoueur iFabrique;
 	private IHM ihm;
 	private IEnumDirection enumDir;
@@ -62,6 +61,7 @@ public class AppliStratego {
 						+ "Quelle piece voulez vous jouer ?");				 
 			}while(!joueurs[i].jouer(ihm.choixCoordonnees(),
 					ihm.choixDirection(enumDir), ihm.choixNbCases()));
+			ihm.afficherPlateau(plateau);
 		}
 
 	}
@@ -76,7 +76,7 @@ public class AppliStratego {
 
 	public static void main(String[] args) {
 		AppliStratego app = new AppliStratego(new FabriqueJoueur(),
-				new ConsoleIHM(), Direction.Sud);
+				new ConsoleIHM(), Direction.values()[0]);
 		System.out.println(app.plateau.toString());
 		app.initJoueur();
 		app.PlacementDesPieces();

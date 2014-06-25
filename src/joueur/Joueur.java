@@ -1,7 +1,5 @@
 package joueur;
 
-
-
 import exceptions.CoordonneeInconnuException;
 import exceptions.PieceNonDisponibleException;
 import stratego.AbstractJoueur;
@@ -32,16 +30,15 @@ public class Joueur extends AbstractJoueur {
 
 	@Override
 	public void retirerPiece(String coord) {
-		//Bien retirer une piece qui nous appartient
+		// Bien retirer une piece qui nous appartient
 		if (getCamp() == plateau.getCase(coord).getCamp()) {
 			plateau.retirerPiece(coord);
 			// remettre dans la reserve
 		}
-	}	
-	
+	}
 
 	@Override
-	public boolean jouer(String coord,IEnumDirection direction, int nbrCases) {
+	public boolean jouer(String coord, IEnumDirection direction, int nbrCases) {
 		try {
 			if (OperationCoordonnées.verfiCoordonnees(coord, plateau)) {
 				return plateau.jouer(direction, nbrCases, coord);

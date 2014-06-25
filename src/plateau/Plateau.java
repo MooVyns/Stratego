@@ -2,7 +2,6 @@ package plateau;
 
 import stratego.AbstractPlateau;
 import stratego.Camp;
-import stratego.Case;
 import stratego.IEnumDirection;
 import stratego.OperationCoordonnées;
 import stratego.Piece;
@@ -10,7 +9,6 @@ import exceptions.*;
 
 public class Plateau extends AbstractPlateau {
 
-	// a finir
 	public Plateau(int colonnes, int lignes) {
 		super(colonnes, lignes);
 		for (int i = 0; i < getNbColonnes(); ++i) {
@@ -35,7 +33,6 @@ public class Plateau extends AbstractPlateau {
 		}
 	}
 
-	
 	public boolean placerPiece(String coord, Piece piece) {
 		try {
 			int[] numCoord = OperationCoordonnées.stringToCoord(coord);
@@ -60,7 +57,6 @@ public class Plateau extends AbstractPlateau {
 		}
 	}
 
-	// A changer
 	public boolean retirerPiece(String coord) {
 		// bonne coordonnée ?
 		try {
@@ -71,17 +67,15 @@ public class Plateau extends AbstractPlateau {
 			// y a-t-il une piece a cette endroit ?
 			if (this.caseOccupee(coord)) {
 				this.getCase(coord).retirerPiece();
+				return true;
 			} else {
-				try {
-					throw new Exception();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+				throw new AucunePieceSurCaseException();
 			}
 		} catch (CoordonneeInconnuException e) {
-			return true;
+			return false;
+		} catch (AucunePieceSurCaseException e) {
+			return false;
 		}
-		return true;
 	}
 
 	public boolean jouer(IEnumDirection direction, int nbrCases, String coord) {

@@ -2,8 +2,8 @@ package ihm;
 
 import java.util.Scanner;
 
-import plateau.Plateau;
 import stratego.AbstractJoueur;
+import stratego.AbstractPlateau;
 import stratego.IEnumDirection;
 import stratego.IHM;
 import stratego.TypePiece;
@@ -16,7 +16,7 @@ public class ConsoleIHM implements IHM {
 	}
 
 	@Override
-	public void afficherPlateau(Plateau plateau) {
+	public void afficherPlateau(AbstractPlateau plateau) {
 		System.out.println(plateau.toString());
 	}
 

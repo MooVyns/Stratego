@@ -1,11 +1,7 @@
 package stratego;
 
-
-import plateau.Plateau;
-
-
 public interface IHM {
-	public void afficherPlateau(Plateau plateau);
+	public void afficherPlateau(AbstractPlateau plateau);
 	public String[] saisieNomJoueur();
 	public String choixCoordonnees();
 	public void afficherString(String str);

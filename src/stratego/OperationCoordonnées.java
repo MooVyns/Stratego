@@ -1,11 +1,5 @@
 package stratego;
 
-import plateau.Plateau;
-
-
-
-
-
 public class OperationCoordonnées {
 	// ok
 	public static String coordToString(int i, int j) {

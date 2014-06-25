@@ -1,8 +1,5 @@
 package stratego;
 
-import exceptions.CaseOccupeeException;
-import exceptions.CoordonneeInconnuException;
-import exceptions.MauvaisCampException;
 
 public abstract class AbstractPlateau {
 	private int COLONNES = 7;
