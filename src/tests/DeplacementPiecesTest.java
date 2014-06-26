@@ -31,9 +31,8 @@ public class DeplacementPiecesTest {
 
 		/* TEST jouer() joueur */
 		assertEquals(joueur.jouer("A3", Direction.Nord, 1), true);
-		assertEquals(joueur.jouer("A2", Direction.Nord, 1), true);
-		System.out.println("f");
-		// assertEquals(joueur.jouer("A1", Direction.Nord, 1),false);
-		assertEquals(joueur.jouer("A1", Direction.NordEst, 1), true);
+		assertEquals(joueur.jouer("A2", Direction.NordEst, 1), true);
+		assertEquals(joueur.jouer("B2", Direction.Nord, 1),true);
+		assertEquals(joueur.jouer("A1", Direction.Sud, 1), false);
 	}
 }
