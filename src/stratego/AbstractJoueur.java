@@ -26,9 +26,9 @@ public abstract class AbstractJoueur {
 		return reserve;
 	}
 
-	public abstract void placerPiece(String coord, TypePiece type);
+	public abstract boolean placerPiece(String coord, TypePiece type);
 
-	public abstract void retirerPiece(String coord);
+	public abstract boolean retirerPiece(String coord);
 
 	public abstract boolean jouer(String coord,IEnumDirection direction, int nbrCases);
 }

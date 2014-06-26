@@ -15,6 +15,6 @@ public class DirectionTest {
 		assertEquals(Direction.Sud.getDirection("NE"), Direction.NordEst);
 		assertEquals(Direction.Sud.getDirection("SO"), Direction.SudOuest);
 		
+		//exist(String str)
 	}
-
 }

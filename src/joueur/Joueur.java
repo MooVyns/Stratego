@@ -16,25 +16,31 @@ public class Joueur extends AbstractJoueur {
 	}
 
 	@Override
-	public void placerPiece(String coord, TypePiece typePiece) {
-		if (this.getReserve().pieceEstDisponible(typePiece)) {
-			if (plateau
-					.placerPiece(coord, new Piece(typePiece, this.getCamp())))
-				this.getReserve().retirerPiece(typePiece);
-		} else
-			try {
-				throw new PieceNonDisponibleException();
-			} catch (PieceNonDisponibleException e) {
+	public boolean placerPiece(String coord, TypePiece typePiece) {
+		try {
+			if (this.getReserve().pieceEstDisponible(typePiece)) {
+				if (plateau.placerPiece(coord,
+						new Piece(typePiece, this.getCamp()))) {
+					this.getReserve().retirerPiece(typePiece);
+					return true;
+				} else
+					throw new PieceNonDisponibleException();
 			}
+		} catch (PieceNonDisponibleException e) {
+			return false;
+		}
+		return false;
 	}
 
 	@Override
-	public void retirerPiece(String coord) {
+	public boolean retirerPiece(String coord) {
 		// Bien retirer une piece qui nous appartient
 		if (getCamp() == plateau.getCase(coord).getCamp()) {
-			plateau.retirerPiece(coord);
+			if(plateau.retirerPiece(coord));
 			// remettre dans la reserve
+			return res;
 		}
+		return false;
 	}
 
 	@Override

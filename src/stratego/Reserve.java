@@ -41,7 +41,6 @@ public class Reserve {
 	}
 
 	public boolean pieceEstDisponible(TypePiece typePiece) {
-		System.out.println(typePiece.getValeur());
 		return this.piecesReserve[typePiece.getValeur()] != 0;
 	}
 

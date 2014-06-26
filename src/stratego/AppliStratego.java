@@ -32,15 +32,17 @@ public class AppliStratego {
 	}
 
 	public void PlacementDesPieces() {
+		String rep ="";
 		for (int i = 0; i < joueurs.length; i++) {
 			this.plateau.cacherPieces(joueurs[(i + 1) % 2].getCamp());
 			ihm.afficherString(joueurs[i].getNom()
 					+ ", à vous de placer vos pions");
 			while (!joueurs[i].getReserve().estVide()) {
-				if (ihm.choixActionPlacementPiece().equals("R")) {
+				rep = ihm.choixActionPlacementPiece();
+				if (rep.equals("R")) {
 					joueurs[i].retirerPiece(ihm.retirerPiece());
 					ihm.afficherPlateau(plateau);
-				} else if (ihm.choixActionPlacementPiece().equals("A")){
+				} else if (rep.equals("A")){
 					TypePiece type = ihm.choixPiece(joueurs[i]);
 					String coord = ihm.choixCoordonnees();
 					joueurs[i].placerPiece(coord, type);
@@ -48,7 +50,6 @@ public class AppliStratego {
 				}
 			}
 		}
-
 	}
 
 	public void deroulementPartie() {

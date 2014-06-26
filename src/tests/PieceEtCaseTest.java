@@ -18,15 +18,14 @@ public class PieceEtCaseTest {
 		c.setPiece(piece);
 		
 		//TEST COORDONNEES
-		System.out.println("TEST COORDONNEES");
 		assertEquals(c.getCoordonnees(), "A2");
 		assertEquals(piece.getCoordonnees(), c.getCoordonnees());		
 		
 		//TEST CAMP
-		System.out.println("TEST CAMP");		
+	
 		
 		//TEST TYPEPIECE
-		System.out.println("TEST TYPEPIECE");
+		
 	}
 
 }
