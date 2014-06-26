@@ -10,10 +10,7 @@ public class ReserveTest {
 
 	@Test
 	public void test() {
-		Reserve reserve = new Reserve();
-		
-		//
-		
+		Reserve reserve = new Reserve();		
 		assertFalse(reserve.estVide());
 		
 		

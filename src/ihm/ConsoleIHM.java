@@ -46,7 +46,8 @@ public class ConsoleIHM implements IHM {
 		do {
 			choix = sc.next().toUpperCase();
 			if (!TypePiece.exist(choix))
-				System.out.println("Cette piece n'existe pas ! Choisissez votre pièce");
+				System.out
+						.println("Cette piece n'existe pas ! Choisissez votre pièce");
 		} while (!TypePiece.exist(choix));
 
 		return TypePiece.getTypePiece(choix);
@@ -94,13 +95,19 @@ public class ConsoleIHM implements IHM {
 		return Integer.parseInt(sc.next());
 	}
 
-	// faire verif
+	// ok
 	@Override
 	public String choixActionPlacementPiece() {
 		System.out.println("Que Souhaitez-vous Faire ?");
 		System.out.println("R => Je souhaite retirer une piece :");
 		System.out.println("A => Je souhaite Ajouter une piece :");
-		String rep = sc.next().toUpperCase();
+		String rep;
+		do {
+			rep = sc.next().toUpperCase();
+			if(!rep.equals("A") && !rep.equals("R"))
+				System.out.println("Ce choix n'est pas disponible ! Reformulez votre choix");
+		} while (!rep.equals("A") && !rep.equals("R"));
+		
 		return rep;
 	}
 

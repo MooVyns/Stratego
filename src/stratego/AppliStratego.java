@@ -40,7 +40,7 @@ public class AppliStratego {
 				if (ihm.choixActionPlacementPiece().equals("R")) {
 					joueurs[i].retirerPiece(ihm.retirerPiece());
 					ihm.afficherPlateau(plateau);
-				} else {
+				} else if (ihm.choixActionPlacementPiece().equals("A")){
 					TypePiece type = ihm.choixPiece(joueurs[i]);
 					String coord = ihm.choixCoordonnees();
 					joueurs[i].placerPiece(coord, type);
