@@ -12,7 +12,6 @@ import stratego.Piece;
 import stratego.TypePiece;
 
 public class PlacementPiecesTest {
-
 	@Test
 	public void test() {
 		Plateau plateau = new Plateau(7, 9);
@@ -33,24 +32,20 @@ public class PlacementPiecesTest {
 
 		/* TEST PlacerPiece() Joueur */
 		assertEquals(joueur.placerPiece("A1", TypePiece.Capitaine), false);
+		assertEquals(joueur.placerPiece("A3", TypePiece.Capitaine), true);
 		assertEquals(joueur.placerPiece("A2", TypePiece.Démineur), true);
 		assertEquals(joueur.placerPiece("A6", TypePiece.Drapeau), false);
 		assertEquals(joueur.placerPiece("C9", TypePiece.Bombe), false);
 
 		/* TEST RetirerPiece() Plateau */
-		assertEquals(
-				plateau.retirerPiece("A1"), true);
-		assertEquals(
-				plateau.retirerPiece("A2"), true);
-		assertEquals(
-				plateau.retirerPiece("A7"), false);
+		assertEquals(plateau.retirerPiece("A1"), true);
+		assertEquals(plateau.retirerPiece("A2"), true);
+		assertEquals(plateau.retirerPiece("A7"), false);
 
 		/* TEST RetirerPiece() Joueur */
-		assertEquals(joueur.retirerPiece("C2"), true);
-		assertEquals(joueur.retirerPiece("A1"), true);
+		assertEquals(joueur.retirerPiece("C2"), false);
+		assertEquals(joueur.retirerPiece("A3"), true);
 		assertEquals(joueur.retirerPiece("C9"), false);
 		assertEquals(joueur.retirerPiece("A1"), false);
-
 	}
-
 }

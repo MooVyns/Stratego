@@ -36,9 +36,10 @@ public class Joueur extends AbstractJoueur {
 	public boolean retirerPiece(String coord) {
 		// Bien retirer une piece qui nous appartient
 		if (getCamp() == plateau.getCase(coord).getCamp()) {
-			if(plateau.retirerPiece(coord));
-			// remettre dans la reserve
-			return res;
+			if (plateau.retirerPiece(coord)) {
+				// remettre dans la reserve
+				return true;
+			}
 		}
 		return false;
 	}
