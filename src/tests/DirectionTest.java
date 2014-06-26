@@ -10,11 +10,11 @@ public class DirectionTest {
 
 	@Test
 	public void test() {
-		/**/
+		/* TEST getDirection() */
 		assertEquals(Direction.Sud.getDirection("S"), Direction.Sud);
 		assertEquals(Direction.Sud.getDirection("NE"), Direction.NordEst);
 		assertEquals(Direction.Sud.getDirection("SO"), Direction.SudOuest);
-		
-		//exist(String str)
+
+		// exist(String str)
 	}
 }

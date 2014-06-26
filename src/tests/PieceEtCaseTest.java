@@ -13,19 +13,18 @@ public class PieceEtCaseTest {
 
 	@Test
 	public void test() {
-		Piece piece = new Piece(TypePiece.Drapeau,Camp.Nord);
-		Case c = new Case("A2",Camp.Nord);
+		Piece piece = new Piece(TypePiece.Drapeau, Camp.Nord);
+		Case c = new Case("A2", Camp.Nord);
 		c.setPiece(piece);
-		
-		//TEST COORDONNEES
+
+		// TEST COORDONNEES
 		assertEquals(c.getCoordonnees(), "A2");
-		assertEquals(piece.getCoordonnees(), c.getCoordonnees());		
-		
-		//TEST CAMP
-	
-		
-		//TEST TYPEPIECE
-		
+		assertEquals(piece.getCoordonnees(), c.getCoordonnees());
+
+		// TEST CAMP
+
+		// TEST TYPEPIECE
+
 	}
 
 }
