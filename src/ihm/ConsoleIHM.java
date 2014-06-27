@@ -57,12 +57,14 @@ public class ConsoleIHM implements IHM {
 	// faire verif
 	public String choixCoordonnees(AbstractPlateau plateau) {
 		System.out.println("Entrez les coordonnées");
-		do{
-			
-			
-			
-		} while(OperationCoordonnées.verfiCoordonnees(coord, plateau))
-		return sc.next().toUpperCase();
+		String coord;
+		do{			
+			coord = sc.next().toUpperCase();
+			if(!OperationCoordonnées.verfiCoordonnees(coord, plateau)){
+				System.out.println("Coordonnées incorrects ! Entrez de nouvelles coordonnées");
+			}
+		} while(!OperationCoordonnées.verfiCoordonnees(coord, plateau));
+		return coord;
 	}
 
 	public void afficherString(String str) {
@@ -116,5 +118,7 @@ public class ConsoleIHM implements IHM {
 		
 		return rep;
 	}
+
+	
 
 }
