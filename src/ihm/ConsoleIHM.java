@@ -58,12 +58,13 @@ public class ConsoleIHM implements IHM {
 	public String choixCoordonnees(AbstractPlateau plateau) {
 		System.out.println("Entrez les coordonnées");
 		String coord;
-		do{			
+		do {
 			coord = sc.next().toUpperCase();
-			if(!OperationCoordonnées.verfiCoordonnees(coord, plateau)){
-				System.out.println("Coordonnées incorrects ! Entrez de nouvelles coordonnées");
+			if (!OperationCoordonnées.verfiCoordonnees(coord, plateau)) {
+				System.out
+						.println("Coordonnées incorrects ! Entrez de nouvelles coordonnées");
 			}
-		} while(!OperationCoordonnées.verfiCoordonnees(coord, plateau));
+		} while (!OperationCoordonnées.verfiCoordonnees(coord, plateau));
 		return coord;
 	}
 
@@ -96,11 +97,26 @@ public class ConsoleIHM implements IHM {
 		return enumDir.getDirection(dir);
 	}
 
+	private boolean estUnNombre(String chaine) {
+		for (int i = 0; i < chaine.length(); i++) {
+			if (chaine.charAt(i) < '0' || chaine.charAt(i) > '9')
+				return false;
+		}
+		return true;
+	}
+
 	// faire verif
 	public int choixNbCases() {
+		String num;
 		System.out.println("De combien de cases voulez vous bouger la pièce ?");
 
-		return Integer.parseInt(sc.next());
+		do {
+			num = sc.next();
+			if (!estUnNombre(num)) {
+				System.out.println("Nombre indisponible ! Retapez un nombre");
+			}
+		} while (!estUnNombre(num));
+		return Integer.parseInt(num);
 	}
 
 	// ok
@@ -112,13 +128,12 @@ public class ConsoleIHM implements IHM {
 		String rep;
 		do {
 			rep = sc.next().toUpperCase();
-			if(!rep.equals("A") && !rep.equals("R"))
-				System.out.println("Ce choix n'est pas disponible ! Reformulez votre choix");
+			if (!rep.equals("A") && !rep.equals("R"))
+				System.out
+						.println("Ce choix n'est pas disponible ! Reformulez votre choix");
 		} while (!rep.equals("A") && !rep.equals("R"));
-		
+
 		return rep;
 	}
-
-	
 
 }
