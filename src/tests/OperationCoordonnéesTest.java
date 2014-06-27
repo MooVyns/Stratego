@@ -25,5 +25,8 @@ public class OperationCoordonnéesTest {
 		/* coordToString */
 		assertEquals(OperationCoordonnées.coordToString(0, 1), "A2");
 		assertEquals(OperationCoordonnées.coordToString(2, 4), "C5");
+		
+		/* TEST verifcoordonnée*/
+		verfiCoordonnees(
 	}
 }

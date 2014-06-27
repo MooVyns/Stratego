@@ -32,7 +32,7 @@ public class AppliStratego {
 	}
 
 	public void PlacementDesPieces() {
-		String rep ="";
+		String rep = "";
 		for (int i = 0; i < joueurs.length; i++) {
 			this.plateau.cacherPieces(joueurs[(i + 1) % 2].getCamp());
 			ihm.afficherString(joueurs[i].getNom()
@@ -42,7 +42,7 @@ public class AppliStratego {
 				if (rep.equals("R")) {
 					joueurs[i].retirerPiece(ihm.retirerPiece());
 					ihm.afficherPlateau(plateau);
-				} else if (rep.equals("A")){
+				} else if (rep.equals("A")) {
 					TypePiece type = ihm.choixPiece(joueurs[i]);
 					String coord = ihm.choixCoordonnees();
 					joueurs[i].placerPiece(coord, type);
@@ -67,7 +67,31 @@ public class AppliStratego {
 		}
 	}
 
+	private boolean pieceMobileExiste() {
+		for (int i = 0; i < plateau.getNbLignes(); i++) {
+			for (int j = 0; j < plateau.getNbColonnes(); j++) {
+				if (plateau.getPlateau()[j][i].getPiece() != null
+						&& plateau.getPlateau()[j][i].getPiece().getTypePiece()
+								.estJouable()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 	public boolean partieFinie() {
+		// IL n'y a plus de piece mobile sur le plateau = egalité
+		if (!pieceMobileExiste())
+			return true;
+		else {
+			// un drapeau a été capturer
+			for (int i = 0; i < plateau.getNbLignes(); i++) {
+				for (int j = 0; j < plateau.getNbColonnes(); j++) {
+
+				}
+			}
+		}
 		return true;
 	}
 

@@ -21,7 +21,6 @@ public class Sauvegarde {
 	public static void sauvegarderPartie(String s){
 		creerFichierSauvegarde();
 		try {
-
 			PrintWriter p = new PrintWriter(new BufferedWriter(new FileWriter(FICHIERSAUVEGARDE)));
 			p.write(s);
 			p.close();
