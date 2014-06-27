@@ -94,7 +94,8 @@ public class Plateau extends AbstractPlateau {
 					if (OperationCoordonnées.verfiCoordonnees(newCoord, this)) {
 						// la case est-elle déja occupée ?
 						if (this.getCase(newCoord).estOccupée()) {
-							affrontement(this.getPiece(coord),this.getPiece(newCoord));
+							affrontement(this.getPiece(coord),
+									this.getPiece(newCoord));
 							return true;
 						} else {
 							// déplacer la piece
@@ -169,7 +170,7 @@ public class Plateau extends AbstractPlateau {
 							+ dessinCase;
 			}
 		}
-		
+
 		dessinCase = " \\___/ ";
 		String m3 = "/ ";
 		for (int j = 0; j < getNbColonnes(); j++) {
@@ -186,7 +187,7 @@ public class Plateau extends AbstractPlateau {
 		}
 		m3 += "\n";
 		m2 += "\n";
-		str += "  "+ m1+ "  " + m2 + "1 "+ m3;
+		str += "  " + m1 + "  " + m2 + "1 " + m3;
 		dessinCase = " \\___/ ";
 
 		for (int i = 1; i < getNbLignes(); i++) {
@@ -226,10 +227,9 @@ public class Plateau extends AbstractPlateau {
 						m4 += this.getPlateau()[j][i].getPiece().toString()
 								+ dessinCase;
 			}
-
 			m4 += " \n";
 			dessinCase = " \\___/ ";
-			str +="  "+ m4 + (i+1)+" "+ m3;
+			str += "  " + m4 + (i + 1) + " " + m3;
 		}
 
 		return str;
@@ -240,16 +240,18 @@ public class Plateau extends AbstractPlateau {
 		int nbCasesVide = 0;
 		for (int i = 0; i < getNbLignes(); i++) {
 			for (int j = 0; j < getNbColonnes(); j++) {
-				if (this.getPlateau()[j][i].estOccupée()) {
-					etat += nbCasesVide
-							+ this.getPlateau()[j][i].getPiece().getCamp()
-									.toString();
-					nbCasesVide = 0;
-				} else {
-					nbCasesVide++;
+				if (this.getPlateau()[j][i].getCamp() != Camp.Indisponible) {
+					if (this.getPlateau()[j][i].estOccupée()) {
+						etat += nbCasesVide
+								+ this.getPlateau()[j][i].getPiece().toString();
+						nbCasesVide = 0;
+					} else
+						nbCasesVide++;
 				}
 			}
-			etat += nbCasesVide + "/";
+			etat += nbCasesVide;
+			if (i != getNbLignes()-1)
+				etat += "/";
 			nbCasesVide = 0;
 		}
 		return etat;
