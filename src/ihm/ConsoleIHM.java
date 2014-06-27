@@ -6,6 +6,7 @@ import stratego.AbstractJoueur;
 import stratego.AbstractPlateau;
 import stratego.IEnumDirection;
 import stratego.IHM;
+import stratego.OperationCoordonnées;
 import stratego.TypePiece;
 
 public class ConsoleIHM implements IHM {
@@ -54,8 +55,13 @@ public class ConsoleIHM implements IHM {
 	}
 
 	// faire verif
-	public String choixCoordonnees() {
+	public String choixCoordonnees(AbstractPlateau plateau) {
 		System.out.println("Entrez les coordonnées");
+		do{
+			
+			
+			
+		} while(OperationCoordonnées.verfiCoordonnees(coord, plateau))
 		return sc.next().toUpperCase();
 	}
 
