@@ -44,7 +44,7 @@ public class AppliStratego {
 					ihm.afficherPlateau(plateau);
 				} else if (rep.equals("A")) {
 					TypePiece type = ihm.choixPiece(joueurs[i]);
-					String coord = ihm.choixCoordonnees();
+					String coord = ihm.choixCoordonnees(plateau);
 					joueurs[i].placerPiece(coord, type);
 					ihm.afficherPlateau(plateau);
 				}
@@ -61,7 +61,7 @@ public class AppliStratego {
 				do {// tant qu'il y a une erreur
 					ihm.afficherString(joueurs[i].getNom()
 							+ ", Quelle piece voulez vous jouer ?");
-				} while (!joueurs[i].jouer(ihm.choixCoordonnees(),
+				} while (!joueurs[i].jouer(ihm.choixCoordonnees(plateau),
 						ihm.choixDirection(enumDir), ihm.choixNbCases()));
 			}
 		}

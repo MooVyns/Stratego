@@ -14,6 +14,7 @@ public class ConsoleIHMTest {
 
 	@Test
 	public void test() {
+		Plateau plateau = new Plateau(7, 9);
 		FabriqueJoueur Fabrique = new FabriqueJoueur();
 		AbstractJoueur joueur = Fabrique.creerJoueur("j1", Camp.values()[0],
 				new Plateau(7, 9));
@@ -23,7 +24,7 @@ public class ConsoleIHMTest {
 		System.out.println(ihm.choixPiece(joueur));
 		System.out.println(ihm.choixDirection(Direction.Nord));
 		System.out.println(ihm.choixNbCases());
-		System.out.println(ihm.choixCoordonnees());
+		System.out.println(ihm.choixCoordonnees(plateau));
 
 	}
 }
