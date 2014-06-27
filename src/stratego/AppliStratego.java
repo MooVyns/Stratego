@@ -40,7 +40,7 @@ public class AppliStratego {
 			while (!joueurs[i].getReserve().estVide()) {
 				rep = ihm.choixActionPlacementPiece();
 				if (rep.equals("R")) {
-					joueurs[i].retirerPiece(ihm.retirerPiece());
+					joueurs[i].retirerPiece(ihm.retirerPiece(plateau));
 					ihm.afficherPlateau(plateau);
 				} else if (rep.equals("A")) {
 					TypePiece type = ihm.choixPiece(joueurs[i]);

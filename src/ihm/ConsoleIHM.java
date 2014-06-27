@@ -71,9 +71,9 @@ public class ConsoleIHM implements IHM {
 		System.out.println(str);
 	}
 
-	public String retirerPiece() {
+	public String retirerPiece(AbstractPlateau plateau) {
 		System.out.println("Quelle pièce voulez vous retirer ?");
-		return this.choixCoordonnees();
+		return this.choixCoordonnees(plateau);
 	}
 
 	// ok
