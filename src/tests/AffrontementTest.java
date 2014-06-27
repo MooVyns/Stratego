@@ -6,9 +6,11 @@ import joueur.Joueur;
 
 import org.junit.Test;
 
+import plateau.Direction;
 import plateau.Plateau;
 import stratego.AbstractJoueur;
 import stratego.Camp;
+
 import stratego.IFabriqueJoueur;
 import stratego.Piece;
 import stratego.TypePiece;
@@ -29,8 +31,11 @@ public class AffrontementTest {
 		//TEST BOMBE
 		plateau.placerPiece("B4",
 				new Piece(TypePiece.Bombe, Camp.values()[0]));
-		plateau.placerPiece("B4",
-				new Piece(TypePiece.Bombe, Camp.values()[0]));
+		plateau.placerPiece("B6s",
+				new Piece(TypePiece.Lieutenant, Camp.values()[1]));
+		
+		
+		joueurs[1].jouer("B6", Direction.Nord, 1);
 		
 		
 		//TEST DEMINAGE
