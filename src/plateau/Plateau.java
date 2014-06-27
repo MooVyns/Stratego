@@ -5,6 +5,7 @@ import stratego.Camp;
 import stratego.IEnumDirection;
 import stratego.OperationCoordonnées;
 import stratego.Piece;
+import stratego.TypePiece;
 import exceptions.*;
 
 public class Plateau extends AbstractPlateau {
@@ -33,12 +34,6 @@ public class Plateau extends AbstractPlateau {
 		}
 	}
 
-	
-	private void setPiece(String coord, Piece piece){
-		this.getCase(coord).setPiece(piece);
-	}
-	
-	
 	public boolean placerPiece(String coord, Piece piece) {
 		try {
 			int[] numCoord = OperationCoordonnées.stringToCoord(coord);
@@ -139,21 +134,27 @@ public class Plateau extends AbstractPlateau {
 		String coordPieceEnAttente = pieceEnAttente.getCoordonnees();
 		String coordOriginePieceDeplacer = pieceDeplacer.getCoordonnees();
 
-		// La piece deplacée est la plus forte
-		if (pieceDeplacer.estSupérieur(pieceEnAttente)) {
-			pieceEnAttente.supprimer();
-			this.setPiece(coordPieceEnAttente, pieceDeplacer);			
-		}
-		// La piece deplacer est la moins forte
-		if (pieceEnAttente.estSupérieur(pieceDeplacer)) {
-			pieceDeplacer.setCase(null);// la piece ne pointe plus sur une case
-			this.getCase(coordOriginePieceDeplacer).retirerPiece();
-			// la case ne pointe plus sur la piece
-		} else {
+		// égalité
+		if (pieceEnAttente.estEgale(pieceDeplacer)
+				|| pieceEnAttente.getTypePiece() == TypePiece.Bombe
+				&& pieceDeplacer.getTypePiece() != TypePiece.Démineur) {
 			pieceEnAttente.supprimer();
 			pieceDeplacer.supprimer();
 			this.getCase(coordPieceEnAttente).retirerPiece();
 			this.getCase(coordOriginePieceDeplacer).retirerPiece();
+		}
+		// La piece deplacée est la plus forte
+		else if (pieceDeplacer.estSupérieur(pieceEnAttente)
+				|| (pieceDeplacer.getTypePiece() == TypePiece.Démineur && pieceEnAttente
+						.getTypePiece() == TypePiece.Bombe)) {
+			pieceEnAttente.supprimer();
+			this.getCase(coordPieceEnAttente).setPiece(pieceDeplacer);
+		}
+		// La piece deplacer est la moins forte
+		else if (pieceEnAttente.estSupérieur(pieceDeplacer)) {
+			pieceDeplacer.setCase(null);// la piece ne pointe plus sur une case
+			this.getCase(coordOriginePieceDeplacer).retirerPiece();
+			// la case ne pointe plus sur la piece
 		}
 	}
 
@@ -256,7 +257,7 @@ public class Plateau extends AbstractPlateau {
 				}
 			}
 			etat += nbCasesVide;
-			if (i != getNbLignes()-1)
+			if (i != getNbLignes() - 1)
 				etat += "/";
 			nbCasesVide = 0;
 		}

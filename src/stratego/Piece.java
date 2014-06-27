@@ -71,4 +71,9 @@ public class Piece {
 		return this.typePiece.getValeur() > p2.getTypePiece().getValeur();
 	}
 
+	
+	public boolean estEgale(Piece p2){
+		return this.typePiece.getValeur() == p2.getTypePiece().getValeur();
+	}
+	
 }

@@ -37,7 +37,7 @@ public class AffrontementTest {
 		
 		joueurs[1].jouer("B6", Direction.Nord, 1);
 		joueurs[1].jouer("B5", Direction.Nord, 1);
-		assertEquals(plateau.getCase("B4").getPiece().getTypePiece(), TypePiece.Bombe);		
+		assertEquals(plateau.getCase("B4").getPiece(), null);		
 		
 	
 		
@@ -49,46 +49,51 @@ public class AffrontementTest {
 		
 		
 		joueurs[1].jouer("D6", Direction.Nord, 1);
+	
 		joueurs[1].jouer("D5", Direction.Nord, 1);
-		assertEquals(plateau.getCase("D4").getPiece().getTypePiece(), TypePiece.Lieutenant);
+	
+		//assertEquals(plateau.getCase("D4").getPiece().getTypePiece(), TypePiece.Lieutenant);
 		
 		
 		
 		
 		//TEST FAIBLE SE DEPLACE
-		/*plateau.placerPiece("B4",
-				new Piece(TypePiece.Bombe, Camp.values()[0]));
-		plateau.placerPiece("B6",
-				new Piece(TypePiece.Lieutenant, Camp.values()[1]));
+		plateau.placerPiece("F4",
+				new Piece(TypePiece.Lieutenant, Camp.values()[0]));
+		plateau.placerPiece("F6",
+				new Piece(TypePiece.Démineur, Camp.values()[1]));
 		
 		
-		joueurs[1].jouer("B6", Direction.Nord, 1);
-		joueurs[1].jouer("B6", Direction.Nord, 1);
-		assertEquals(plateau.getCase("B4").getPiece().getTypePiece(), TypePiece.Bombe);
+		joueurs[1].jouer("F6", Direction.Nord, 1);
+		joueurs[1].jouer("F5", Direction.Nord, 1);
+		assertEquals(plateau.getCase("F4").getPiece().getTypePiece(), TypePiece.Lieutenant);
 		
 		
 		
 		//TEST EGALITE
-		plateau.placerPiece("B4",
-				new Piece(TypePiece.Bombe, Camp.values()[0]));
-		plateau.placerPiece("B6",
+		plateau.placerPiece("A3",
+				new Piece(TypePiece.Lieutenant, Camp.values()[0]));
+		plateau.placerPiece("A6",
 				new Piece(TypePiece.Lieutenant, Camp.values()[1]));
 		
 		
-		joueurs[1].jouer("B6", Direction.Nord, 1);
-		joueurs[1].jouer("B6", Direction.Nord, 1);
-		assertEquals(plateau.getCase("B4").getPiece().getTypePiece(), TypePiece.Bombe);
+		joueurs[1].jouer("A6", Direction.Nord, 1);
+		joueurs[1].jouer("A5", Direction.Nord, 1);
+		joueurs[1].jouer("A4", Direction.Nord, 1);
+		assertEquals(plateau.getCase("A3").getPiece(), null);
+		
 		
 		//TEST DEMINAGE
-		plateau.placerPiece("B4",
+		plateau.placerPiece("C3",
 				new Piece(TypePiece.Bombe, Camp.values()[0]));
-		plateau.placerPiece("B6",
-				new Piece(TypePiece.Lieutenant, Camp.values()[1]));
+		plateau.placerPiece("C6",
+				new Piece(TypePiece.Démineur, Camp.values()[1]));
 		
 		
-		joueurs[1].jouer("B6", Direction.Nord, 1);
-		joueurs[1].jouer("B6", Direction.Nord, 1);
-		assertEquals(plateau.getCase("B4").getPiece().getTypePiece(), TypePiece.Bombe);*/
+		joueurs[1].jouer("C6", Direction.Nord, 1);
+		joueurs[1].jouer("C5", Direction.Nord, 1);
+		joueurs[1].jouer("C4", Direction.Nord, 1);
+		assertEquals(plateau.getCase("C3").getPiece().getTypePiece(), TypePiece.Démineur);
 		
 		
 		
