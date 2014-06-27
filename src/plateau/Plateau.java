@@ -33,6 +33,12 @@ public class Plateau extends AbstractPlateau {
 		}
 	}
 
+	
+	private void setPiece(String coord, Piece piece){
+		this.getCase(coord).setPiece(piece);
+	}
+	
+	
 	public boolean placerPiece(String coord, Piece piece) {
 		try {
 			int[] numCoord = OperationCoordonnées.stringToCoord(coord);
@@ -136,7 +142,7 @@ public class Plateau extends AbstractPlateau {
 		// La piece deplacée est la plus forte
 		if (pieceDeplacer.estSupérieur(pieceEnAttente)) {
 			pieceEnAttente.supprimer();
-			this.placerPiece(coordPieceEnAttente, pieceDeplacer);
+			this.setPiece(coordPieceEnAttente, pieceDeplacer);			
 		}
 		// La piece deplacer est la moins forte
 		if (pieceEnAttente.estSupérieur(pieceDeplacer)) {

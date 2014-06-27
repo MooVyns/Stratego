@@ -23,6 +23,9 @@ public class DeplacementPiecesTest {
 		plateau.placerPiece("A1", new Piece(TypePiece.Bombe, Camp.values()[0]));
 		plateau.placerPiece("A2",
 				new Piece(TypePiece.Colonel, Camp.values()[0]));
+		
+		plateau.placerPiece("B4",
+				new Piece(TypePiece.Colonel, Camp.values()[0]));
 
 		/* TEST jouer() plateau */
 		assertEquals(plateau.jouer(Direction.Nord, 1, "A1"), false);
@@ -34,5 +37,9 @@ public class DeplacementPiecesTest {
 		assertEquals(joueur.jouer("A2", Direction.NordEst, 1), true);
 		assertEquals(joueur.jouer("B2", Direction.Nord, 1),true);
 		assertEquals(joueur.jouer("A1", Direction.Sud, 1), false);
+		
+		assertEquals(joueur.jouer("B4", Direction.Sud, 1), true);
+		assertEquals(joueur.jouer("B5", Direction.Sud, 1), true);
+		
 	}
 }

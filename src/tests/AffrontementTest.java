@@ -31,30 +31,65 @@ public class AffrontementTest {
 		//TEST BOMBE
 		plateau.placerPiece("B4",
 				new Piece(TypePiece.Bombe, Camp.values()[0]));
-		plateau.placerPiece("B6s",
+		plateau.placerPiece("B6",
 				new Piece(TypePiece.Lieutenant, Camp.values()[1]));
 		
 		
 		joueurs[1].jouer("B6", Direction.Nord, 1);
+		joueurs[1].jouer("B5", Direction.Nord, 1);
+		assertEquals(plateau.getCase("B4").getPiece().getTypePiece(), TypePiece.Bombe);		
 		
-		
-		//TEST DEMINAGE
-		
-		
-		
+	
 		
 		//TEST PIECE FORTE SE DEPLACE
+		plateau.placerPiece("D4",
+				new Piece(TypePiece.Démineur, Camp.values()[0]));
+		plateau.placerPiece("D6",
+				new Piece(TypePiece.Lieutenant, Camp.values()[1]));
 		
+		
+		joueurs[1].jouer("D6", Direction.Nord, 1);
+		joueurs[1].jouer("D5", Direction.Nord, 1);
+		assertEquals(plateau.getCase("D4").getPiece().getTypePiece(), TypePiece.Lieutenant);
 		
 		
 		
 		
 		//TEST FAIBLE SE DEPLACE
+		/*plateau.placerPiece("B4",
+				new Piece(TypePiece.Bombe, Camp.values()[0]));
+		plateau.placerPiece("B6",
+				new Piece(TypePiece.Lieutenant, Camp.values()[1]));
 		
+		
+		joueurs[1].jouer("B6", Direction.Nord, 1);
+		joueurs[1].jouer("B6", Direction.Nord, 1);
+		assertEquals(plateau.getCase("B4").getPiece().getTypePiece(), TypePiece.Bombe);
 		
 		
 		
 		//TEST EGALITE
+		plateau.placerPiece("B4",
+				new Piece(TypePiece.Bombe, Camp.values()[0]));
+		plateau.placerPiece("B6",
+				new Piece(TypePiece.Lieutenant, Camp.values()[1]));
+		
+		
+		joueurs[1].jouer("B6", Direction.Nord, 1);
+		joueurs[1].jouer("B6", Direction.Nord, 1);
+		assertEquals(plateau.getCase("B4").getPiece().getTypePiece(), TypePiece.Bombe);
+		
+		//TEST DEMINAGE
+		plateau.placerPiece("B4",
+				new Piece(TypePiece.Bombe, Camp.values()[0]));
+		plateau.placerPiece("B6",
+				new Piece(TypePiece.Lieutenant, Camp.values()[1]));
+		
+		
+		joueurs[1].jouer("B6", Direction.Nord, 1);
+		joueurs[1].jouer("B6", Direction.Nord, 1);
+		assertEquals(plateau.getCase("B4").getPiece().getTypePiece(), TypePiece.Bombe);*/
+		
 		
 		
 	}
